@@ -50,7 +50,7 @@ def _readCSV(file):
     return data
 
 
-def load(file_names, year, month, court, output_folder):
+def load(file_names, data):
     """Carrega os arquivos passados como parâmetros.
      :param file_names: slice contendo os arquivos baixados pelo coletor.
     Os nomes dos arquivos devem seguir uma convenção e começar com
@@ -59,13 +59,15 @@ def load(file_names, year, month, court, output_folder):
      :return um objeto Data() pronto para operar com os arquivos
     """
 
-    if court.casefold() in ["mppa", "mpsc", "mprr"]:
-        contracheque = _readXLS([c for c in file_names if "contracheque" in c][0])
-        indenizatorias = _readXLS([i for i in file_names if "indenizacoes" in i][0])
+    if data.court.casefold() in ["mppa", "mpsc", "mprr"]:
+        data.contracheque = _readXLS([c for c in file_names if "contracheque" in c][0])
+        data.indenizatorias = _readXLS(
+            [i for i in file_names if "indenizacoes" in i][0]
+        )
 
-        return Data(contracheque, indenizatorias, year, month, court, output_folder)
+        return data
 
-    elif court.casefold() in [
+    elif data.court.casefold() in [
         "mpsp",
         "mprj",
         "mpse",
@@ -74,29 +76,37 @@ def load(file_names, year, month, court, output_folder):
         "mppi",
         "mpac",
         "mpba",
-    ] or (court.casefold() == "mpes" and int(year) != 2021):
-        contracheque = _readODS([c for c in file_names if "contracheque" in c][0])
-        indenizatorias = _readODS([i for i in file_names if "indenizacoes" in i][0])
-        
-        return Data(contracheque, indenizatorias, year, month, court, output_folder)
+    ] or (data.court.casefold() == "mpes" and int(year) != 2021):
+        data.contracheque = _readODS([c for c in file_names if "contracheque" in c][0])
+        data.indenizatorias = _readODS(
+            [i for i in file_names if "indenizacoes" in i][0]
+        )
 
-    elif court.casefold() in ["mprs", "mpal"]:
-        contracheque = _readCSV([c for c in file_names if "contracheque" in c][0])
-        indenizatorias = _readCSV([i for i in file_names if "indenizacoes" in i][0])
+        return data
 
-        return Data(contracheque, indenizatorias, year, month, court, output_folder)
+    elif data.court.casefold() in ["mprs", "mpal"]:
+        data.contracheque = _readCSV([c for c in file_names if "contracheque" in c][0])
+        data.indenizatorias = _readCSV(
+            [i for i in file_names if "indenizacoes" in i][0]
+        )
 
-    elif court.casefold() in ["mppe"] or (
-        court.casefold() == "mpes" and int(year) == 2021
+        return data
+
+    elif data.court.casefold() in ["mppe"] or (
+        data.court.casefold() == "mpes" and int(year) == 2021
     ):
-        contracheque = _readXLSX([c for c in file_names if "contracheque" in c][0])
-        indenizatorias = _readXLSX([i for i in file_names if "indenizacoes" in i][0])
+        data.contracheque = _readXLSX([c for c in file_names if "contracheque" in c][0])
+        data.indenizatorias = _readXLSX(
+            [i for i in file_names if "indenizacoes" in i][0]
+        )
 
-        return Data(contracheque, indenizatorias, year, month, court, output_folder)
+        return data
 
 
 class Data:
-    def __init__(self, contracheque, indenizatorias, year, month, court, output_folder):
+    def __init__(
+        self, year, month, court, output_folder, contracheque=None, indenizatorias=None
+    ):
         self.year = year
         self.month = month
         self.court = court
@@ -117,7 +127,7 @@ class Data:
             glob.glob(
                 f"{self.output_folder}/{self.court}-contracheques-{self.month}-{self.year}.*"
             )
-            or glob.glob(
+            and glob.glob(
                 f"{self.output_folder}/{self.court}-indenizacoes-{self.month}-{self.year}.*"
             )
         ):
