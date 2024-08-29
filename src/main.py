@@ -66,9 +66,11 @@ def parse_execution(data, file_names):
 def main():
     file_names = [f.rstrip() for f in sys.stdin.readlines()]
 
-    dados = data.load(file_names, year, month, court, output_path)
+    dados = data.Data(year, month, court, output_path)
 
     dados.validate()
+
+    dados = data.load(file_names, dados)
 
     parse_execution(dados, file_names)
 

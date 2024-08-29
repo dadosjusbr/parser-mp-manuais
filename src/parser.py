@@ -44,6 +44,14 @@ def parse_employees(file, colect_key, court):
                 and "rendimento" not in registration.casefold()
                 and "mês" not in registration.casefold()
             ):
+                # MPPI não informa cargo e lotação para todos os membros, 
+                # podendo colocar 2 campos nulos ou substituir algum por " ".
+                # Isso dificulta ao iterar sobre as rubricas, uma vez que não há um padrão e não é estritamente tabular.
+                if court == "mppi" and len(new_row) != 18:
+                    new_row = ["" if item == " " else item for item in new_row]
+                    while len(new_row) != 18:
+                        new_row.insert(2, "")
+                
                 # MPPA possui uma linha com o somatório de cada rubrica
                 if (
                     (court == "mppa" and len(new_row) == 15)
