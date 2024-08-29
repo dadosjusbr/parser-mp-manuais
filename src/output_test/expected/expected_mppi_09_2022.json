@@ -1,0 +1,138 @@
+[
+    {
+        "idContraCheque": "mppi/09/2022/3",
+        "chaveColeta": "mppi/09/2022",
+        "nome": "ALBERTINO RODRIGUES FERREIRA",
+        "matricula": "16004",
+        "funcao": "PROMOTOR(A) TURMA RECURSAL-JECC, 20º PROMOTOR(A) DE JUSTIÇA DE TERESINA, COORDENADOR(A) DE NUCLEO",
+        "localTrabalho": "20ª PROMOTORIA DE JUSTIÇA DE TERESINA, NUCLEO DAS PJ DOS JUIZADOS ESPECIAIS DE TERESINA, 20ª PROMOTORIA DE JUSTIÇA DE TERESINA",
+        "ativo": true,
+        "remuneracoes": {
+            "remuneracao": [
+                {
+                    "categoria": "REMUNERAÇÃO BÁSICA",
+                    "item": "Remuneração do Cargo Efetivo",
+                    "valor": 33689.11
+                },
+                {
+                    "categoria": "REMUNERAÇÃO BÁSICA",
+                    "item": "Outras Verbas Remuneratórias, Legais ou Judiciais",
+                    "valor": 3368.91
+                },
+                {
+                    "categoria": "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA",
+                    "item": "Função de Confiança ou Cargo em Comissão",
+                    "valor": 1684.46
+                },
+                {
+                    "categoria": "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA",
+                    "item": "Gratificação Natalina"
+                },
+                {
+                    "categoria": "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA",
+                    "item": "Férias Constitucionais"
+                },
+                {
+                    "categoria": "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA",
+                    "item": "Abono de Permanência",
+                    "valor": 4716.48
+                },
+                {
+                    "natureza": "D",
+                    "categoria": "OBRIGATÓRIOS/LEGAIS",
+                    "item": "Contribuição Previdenciária",
+                    "valor": -4716.48
+                },
+                {
+                    "natureza": "D",
+                    "categoria": "OBRIGATÓRIOS/LEGAIS",
+                    "item": "Imposto de Renda",
+                    "valor": -8858.37
+                },
+                {
+                    "natureza": "D",
+                    "categoria": "OBRIGATÓRIOS/LEGAIS",
+                    "item": "Retenção por Teto Constitucional"
+                },
+                {
+                    "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                    "item": "AUXÍLIO ALIMENTAÇÃO",
+                    "valor": 1923.52,
+                    "tipoReceita": "O"
+                },
+                {
+                    "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                    "item": "AUXÍLIO SAÚDE",
+                    "tipoReceita": "O"
+                },
+                {
+                    "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                    "item": "ABONO PECUNIÁRIO",
+                    "tipoReceita": "O"
+                },
+                {
+                    "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                    "item": "INDENIZAÇÃO POR CUMULAÇÃO",
+                    "tipoReceita": "O"
+                },
+                {
+                    "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                    "item": "COMPLEMENTO POR ENTRÂNCIA",
+                    "tipoReceita": "O"
+                }
+            ]
+        }
+    },
+    {
+        "idContraCheque": "mppi/09/2022/4",
+        "chaveColeta": "mppi/09/2022",
+        "nome": "ALFREDO ALBERTO LEAL NUNES",
+        "matricula": "17031",
+        "ativo": true,
+        "remuneracoes": {
+            "remuneracao": [
+                {
+                    "categoria": "REMUNERAÇÃO BÁSICA",
+                    "item": "Remuneração do Cargo Efetivo",
+                    "valor": 35462.22
+                },
+                {
+                    "categoria": "REMUNERAÇÃO BÁSICA",
+                    "item": "Outras Verbas Remuneratórias, Legais ou Judiciais"
+                },
+                {
+                    "categoria": "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA",
+                    "item": "Função de Confiança ou Cargo em Comissão"
+                },
+                {
+                    "categoria": "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA",
+                    "item": "Gratificação Natalina"
+                },
+                {
+                    "categoria": "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA",
+                    "item": "Férias Constitucionais"
+                },
+                {
+                    "categoria": "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA",
+                    "item": "Abono de Permanência"
+                },
+                {
+                    "natureza": "D",
+                    "categoria": "OBRIGATÓRIOS/LEGAIS",
+                    "item": "Contribuição Previdenciária",
+                    "valor": -5251.27
+                },
+                {
+                    "natureza": "D",
+                    "categoria": "OBRIGATÓRIOS/LEGAIS",
+                    "item": "Imposto de Renda"
+                },
+                {
+                    "natureza": "D",
+                    "categoria": "OBRIGATÓRIOS/LEGAIS",
+                    "item": "Retenção por Teto Constitucional"
+                }
+            ]
+        }
+    }
+]
