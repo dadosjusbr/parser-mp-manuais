@@ -156,6 +156,9 @@ def update_employees(file_indenizacoes, employees, court):
             else:
                 registration = row[0]
 
+            if type(registration) != str and not pd.isna(registration) and court == "mprj":
+                registration = str(int(registration)).zfill(8)
+
             if type(registration) != str and not pd.isna(registration):
                 registration = str(int(registration))
 
