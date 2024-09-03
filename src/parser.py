@@ -44,14 +44,14 @@ def parse_employees(file, colect_key, court):
                 and "rendimento" not in registration.casefold()
                 and "mês" not in registration.casefold()
             ):
-                # MPPI não informa cargo e lotação para todos os membros, 
+                # MPPI não informa cargo e lotação para todos os membros,
                 # podendo colocar 2 campos nulos ou substituir algum por " ".
                 # Isso dificulta ao iterar sobre as rubricas, uma vez que não há um padrão e não é estritamente tabular.
                 if court == "mppi" and len(new_row) != 18:
                     new_row = ["" if item == " " else item for item in new_row]
                     while len(new_row) != 18:
                         new_row.insert(2, "")
-                
+
                 # MPPA possui uma linha com o somatório de cada rubrica
                 if (
                     (court == "mppa" and len(new_row) == 15)
@@ -146,6 +146,36 @@ def remunerations(row, court):
     return remuneration_array
 
 
+def remunerations_mpes(file_indenizatorias):
+    dict_remuneracoes = {}
+    for row in file_indenizatorias:
+        if not pd.isna(row[0]):
+            mat = str(row[0])
+            remuneracoes = dict_remuneracoes.get(mat, Coleta.Remuneracoes())
+            rem = Coleta.Remuneracao()
+            rem.natureza = Coleta.Remuneracao.Natureza.Value("R")
+            rem.categoria = "VERBAS INDENIZATÓRIAS"
+            rem.item = str(row[4])
+            rem.valor = float(number.format_value(row[5]))
+            rem.tipo_receita = Coleta.Remuneracao.TipoReceita.Value("O")
+            remuneracoes.remuneracao.append(rem)
+            if not pd.isna(row[6]):
+                rem = Coleta.Remuneracao()
+                rem.natureza = Coleta.Remuneracao.Natureza.Value("R")
+                rem.categoria = "OUTRAS REMUNERAÇÕES TEMPORÁRIAS"
+                rem.item = str(row[6])
+                rem.valor = float(number.format_value(row[7]))
+                rem.tipo_receita = Coleta.Remuneracao.TipoReceita.Value("O")
+                remuneracoes.remuneracao.append(rem)
+            dict_remuneracoes[mat] = remuneracoes
+    return dict_remuneracoes
+
+
+def get_remunerations_mpes(employee, remuneracoes):
+    if employee in remuneracoes.keys():
+        return remuneracoes[employee]
+
+
 def update_employees(file_indenizacoes, employees, court):
     for row in file_indenizacoes:
         if court in ["mpto", "mppi", "mpse"]:
@@ -167,6 +197,45 @@ def update_employees(file_indenizacoes, employees, court):
     return employees
 
 
+def update_employees_mpes(data, employees):
+    # Os diversos formatos do MPES em 2021 possui suas rubricas em colunas,
+    # isto é, precisamos listar suas rubricas e interamos apenas pelos seus valores,
+    # assim como os demais órgãos.
+    # A partir de 2022, temos 2 colunas (ou 4), uma contendo a descrição/rubrica e outra contendo o valor.
+    if int(data.year) == 2021:
+        if int(data.month) in [1, 3]:
+            header = "mpes-01-2021"
+        elif int(data.month) in [2, 7]:
+            header = "mpes-02-2021"
+        elif int(data.month) in [8]:
+            header = "mpes-08-2021"
+        elif int(data.month) in [12]:
+            header = "mpes-12-2021"
+        else:
+            # int(data.month) in [4,5,6,9,10,11]
+            header = "mpes-04-2021"
+
+        for row in data.indenizatorias:
+            registration = row[0]
+
+            if type(registration) != str and not pd.isna(registration):
+                registration = str(int(registration))
+
+            if registration in employees.keys():
+                emp = employees[registration]
+                remu = remunerations(row, header)
+                emp.remuneracoes.MergeFrom(remu)
+                employees[registration] = emp
+    else:
+        remuneracoes = remunerations_mpes(data.indenizatorias)
+        for employee in employees:
+            emp = employees[employee]
+            remu = get_remunerations_mpes(employee, remuneracoes)
+            emp.remuneracoes.MergeFrom(remu)
+            employees[employee] = emp
+    return employees
+
+
 def parse(data, colect_key):
     employees = {}
     payroll = Coleta.FolhaDePagamento()
@@ -174,7 +243,12 @@ def parse(data, colect_key):
     employees.update(
         parse_employees(data.contracheque, colect_key, data.court.casefold())
     )
-    update_employees(data.indenizatorias, employees, data.court.casefold())
+
+    # MPES mudou o formato de sua planilha de indenizações diversas vezes entre 2021 e 2022
+    if data.court.casefold() == "mpes":
+        update_employees_mpes(data, employees)
+    else:
+        update_employees(data.indenizatorias, employees, data.court.casefold())
 
     for i in employees.values():
         payroll.contra_cheque.append(i)
