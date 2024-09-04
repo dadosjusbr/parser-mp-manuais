@@ -19,7 +19,11 @@ INDENIZACOES_MPAL = "indenizacoes-mpal"
 CONTRACHEQUE_MPBA = "contracheque-mpba"
 INDENIZACOES_MPBA = "indenizacoes-mpba"
 CONTRACHEQUE_MPES = "contracheque-mpes"
-INDENIZACOES_MPES = "indenizacoes-mpes"
+INDENIZACOES_MPES_01_2021 = "indenizacoes-mpes-01-2021"
+INDENIZACOES_MPES_02_2021 = "indenizacoes-mpes-02-2021"
+INDENIZACOES_MPES_04_2021 = "indenizacoes-mpes-04-2021"
+INDENIZACOES_MPES_08_2021 = "indenizacoes-mpes-08-2021"
+INDENIZACOES_MPES_12_2021 = "indenizacoes-mpes-12-2021"
 CONTRACHEQUE_MPSE = "contracheque-mpse"
 INDENIZACOES_MPSE = "indenizacoes-mpse"
 CONTRACHEQUE_MPRR = "contracheque-mprr"
@@ -397,10 +401,45 @@ HEADERS = {
             "Retenção por Teto Constitucional CONSTITUCIONAL": 15,
         },
     },
-    INDENIZACOES_MPES: {
+    # 01, 03 de 2021
+    INDENIZACOES_MPES_01_2021: {
         "CARTÃO ALIMENTAÇÃO": 4,
         "AUXÍLIO-SAÚDE": 5,
         "PLANTÃO": 6,
+    },
+    # 02, 07 de 2021
+    INDENIZACOES_MPES_02_2021: {
+        "CARTÃO ALIMENTAÇÃO": 4,
+        "ABONO FÉRIAS INDENIZATÓRIAS": 5,
+        "AUXÍLIO-SAÚDE": 6,
+        "PLANTÃO": 7,
+    },
+    # 04, 05, 06, 09, 10, 11 de 2021
+    INDENIZACOES_MPES_04_2021: {
+        "CARTÃO ALIMENTAÇÃO": 4,
+        "FÉRIAS INDENIZATÓRIAS": 5,
+        "FÉRIAS PRÊMIO": 6,
+        "AUXÍLIO-SAÚDE": 7,
+        "PLANTÃO": 8,
+    },
+    # 08 de 2021
+    INDENIZACOES_MPES_08_2021: {
+        "CARTÃO ALIMENTAÇÃO": 4,
+        "FÉRIAS INDENIZATÓRIAS": 5,
+        "ABONO FÉRIAS INDENIZATÓRIAS": 6,
+        "FÉRIAS PRÊMIO": 7,
+        "AUXÍLIO-SAÚDE": 8,
+        "PLANTÃO": 9,
+    },
+    # 12 de 2021
+    INDENIZACOES_MPES_12_2021: {
+        "CARTÃO ALIMENTAÇÃO": 4,
+        "FÉRIAS INDENIZATÓRIAS": 5,
+        "FÉRIAS PRÊMIO": 6,
+        "AJUDA DE CUSTO": 7,
+        "AUX. MORADIA": 8,
+        "AUXÍLIO-SAÚDE": 9,
+        "PLANTÃO": 10,
     },
     CONTRACHEQUE_MPSE: {
         "REMUNERAÇÃO BÁSICA": {

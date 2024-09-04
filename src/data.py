@@ -76,7 +76,7 @@ def load(file_names, data):
         "mppi",
         "mpac",
         "mpba",
-    ] or (data.court.casefold() == "mpes" and int(year) != 2021):
+    ] or (data.court.casefold() == "mpes" and int(data.year) != 2021):
         data.contracheque = _readODS([c for c in file_names if "contracheque" in c][0])
         data.indenizatorias = _readODS(
             [i for i in file_names if "indenizacoes" in i][0]
@@ -93,7 +93,7 @@ def load(file_names, data):
         return data
 
     elif data.court.casefold() in ["mppe"] or (
-        data.court.casefold() == "mpes" and int(year) == 2021
+        data.court.casefold() == "mpes" and int(data.year) == 2021
     ):
         data.contracheque = _readXLSX([c for c in file_names if "contracheque" in c][0])
         data.indenizatorias = _readXLSX(
