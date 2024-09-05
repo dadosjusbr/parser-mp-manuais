@@ -2,6 +2,9 @@ CONTRACHEQUE_MPPA = "contracheque-mppa"
 INDENIZACOES_MPPA = "indenizacoes-mppa"
 CONTRACHEQUE_MPRJ = "contracheque-mprj"
 INDENIZACOES_MPRJ = "indenizacoes-mprj"
+INDENIZACOES_MPRJ_10_2022 = "indenizacoes-mprj-10-2022"
+INDENIZACOES_MPRJ_05_2023 = "indenizacoes-mprj-05-2023"
+INDENIZACOES_MPRJ_07_2023= "indenizacoes-mprj-07-2023"
 CONTRACHEQUE_MPRN = "contracheque-mprn"
 INDENIZACOES_MPRN = "indenizacoes-mprn"
 CONTRACHEQUE_MPTO = "contracheque-mpto"
@@ -83,9 +86,9 @@ HEADERS = {
         },
     },
     INDENIZACOES_MPRJ: {
-        "AUXÍLIO-ALIMENTAÇÃO": 4,
-        "AUXÍLIO-EDUCAÇÃO": 5,
-        "AUXÍLIO-SAÚDE": 6,
+        "AUXÍLIO-ALIMENTAÇÃO - 1": 4,
+        "AUXÍLIO-EDUCAÇÃO - 1": 5,
+        "AUXÍLIO-SAÚDE - 1": 6,
         "DEVOLUÇÃO IR RRA": 7,
         "INDENIZAÇÃO DE FÉRIAS NÃO USUFRUÍDAS": 8,
         "INDENIZAÇÃO POR LICENÇA NÃO GOZADA": 9,
@@ -93,6 +96,52 @@ HEADERS = {
         "AUXÍLIO-EDUCAÇÃO": 11,
         "AUXÍLIO-SAÚDE": 12,
         "DEVOLUÇÃO FUNDO DE RESERVA": 13,
+        "DIFERENÇAS DE AUXÍLIOS": 14,
+        "GRATIFICAÇÕES EVENTUAIS": 15,
+        "INDENIZAÇÃO DE TRANSPORTE": 16,
+        "PARCELAS PAGAS EM ATRASO": 17,
+    },
+    INDENIZACOES_MPRJ_10_2022: {
+        "AUXÍLIO-ALIMENTAÇÃO - 1": 4,
+        "AUXÍLIO-EDUCAÇÃO - 1": 5,
+        "AUXÍLIO-SAÚDE - 1": 6,
+        "CONVERSÃO DE LICENÇA ESPECIAL/PRÊMIO": 7,
+        "INDENIZAÇÃO DE FÉRIAS NÃO USUFRUÍDAS": 8,
+        "INDENIZAÇÃO DE TRANSPORTE - 1": 9,
+        "INDENIZAÇÃO POR LICENÇA NÃO GOZADA": 10,
+        "AUXÍLIO-ALIMENTAÇÃO": 11,
+        "AUXÍLIO-EDUCAÇÃO": 12,
+        "DIFERENÇAS DE AUXÍLIOS": 13,
+        "GRATIFICAÇÕES EVENTUAIS": 14,
+        "INDENIZAÇÃO DE TRANSPORTE": 15,
+        "PARCELAS PAGAS EM ATRASO": 16,
+    },
+    INDENIZACOES_MPRJ_05_2023: {
+        "AUXÍLIO-ALIMENTAÇÃO - 1": 4,
+        "AUXÍLIO-EDUCAÇÃO - 1": 5,
+        "AUXÍLIO-SAÚDE - 1": 6,
+        "INDENIZAÇÃO DE FÉRIAS NÃO USUFRUÍDAS": 7,
+        "INDENIZAÇÃO DE TRANSPORTE - 1": 8,
+        "INDENIZAÇÃO POR LICENÇA NÃO GOZADA": 9,
+        "AUXÍLIO-ALIMENTAÇÃO": 10,
+        "AUXÍLIO-EDUCAÇÃO": 11,
+        "AUXÍLIO-SAÚDE": 12,
+        "DIFERENÇAS DE AUXÍLIOS": 13,
+        "GRATIFICAÇÕES EVENTUAIS": 14,
+        "INDENIZAÇÃO DE TRANSPORTE": 15,
+        "PARCELAS PAGAS EM ATRASO": 16,
+    },
+    INDENIZACOES_MPRJ_07_2023: {
+        "AUXÍLIO-ALIMENTAÇÃO - 1": 4,
+        "AUXÍLIO-EDUCAÇÃO - 1": 5,
+        "AUXÍLIO-SAÚDE - 1": 6,
+        "CONVERSÃO DE LICENÇA ESPECIAL/PRÊMIO": 7,
+        "INDENIZAÇÃO DE FÉRIAS NÃO USUFRUÍDAS": 8,
+        "INDENIZAÇÃO DE TRANSPORTE - 1": 9,
+        "INDENIZAÇÃO POR LICENÇA NÃO GOZADA": 10,
+        "AUXÍLIO-ALIMENTAÇÃO": 11,
+        "AUXÍLIO-EDUCAÇÃO": 12,
+        "AUXÍLIO-SAÚDE": 13,
         "DIFERENÇAS DE AUXÍLIOS": 14,
         "GRATIFICAÇÕES EVENTUAIS": 15,
         "INDENIZAÇÃO DE TRANSPORTE": 16,
