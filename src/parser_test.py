@@ -149,6 +149,86 @@ class TestParser(unittest.TestCase):
 
         self.assertEqual(expected_01_2022, result_to_dict["contraCheque"][0])
 
+    def test_mppe_01_2021(self):
+        self.maxDiff = None
+        # Json com a saida esperada
+        with open("src/output_test/expected/expected_mppe_01_2021.json", "r") as fp:
+            expected_01_2021 = json.load(fp)
+
+        files = [
+            "src/output_test/sheets/MPPE-contracheques-01-2021.xlsx",
+            "src/output_test/sheets/MPPE-indenizacoes-01-2021.xlsx",
+        ]
+
+        dados = data.Data("2021", "01", "MPPE", "src/output_test/sheets")
+        dados = data.load(files, dados)
+        result_data = parse(dados, "mppe/01/2021")
+
+        # Converto o resultado do parser, em dict
+        result_to_dict = MessageToDict(result_data)
+
+        self.assertEqual(expected_01_2021, result_to_dict["contraCheque"][0])
+
+    def test_mppe_12_2021(self):
+        self.maxDiff = None
+        # Json com a saida esperada
+        with open("src/output_test/expected/expected_mppe_12_2021.json", "r") as fp:
+            expected_12_2021 = json.load(fp)
+
+        files = [
+            "src/output_test/sheets/MPPE-contracheques-12-2021.xlsx",
+            "src/output_test/sheets/MPPE-indenizacoes-12-2021.xlsx",
+        ]
+
+        dados = data.Data("2021", "12", "MPPE", "src/output_test/sheets")
+        dados = data.load(files, dados)
+        result_data = parse(dados, "mppe/12/2021")
+
+        # Converto o resultado do parser, em dict
+        result_to_dict = MessageToDict(result_data)
+
+        self.assertEqual(expected_12_2021, result_to_dict["contraCheque"][0])
+
+    def test_mppe_12_2022(self):
+        self.maxDiff = None
+        # Json com a saida esperada
+        with open("src/output_test/expected/expected_mppe_12_2022.json", "r") as fp:
+            expected_12_2022 = json.load(fp)
+
+        files = [
+            "src/output_test/sheets/MPPE-contracheques-12-2022.xlsx",
+            "src/output_test/sheets/MPPE-indenizacoes-12-2022.xlsx",
+        ]
+
+        dados = data.Data("2022", "12", "MPPE", "src/output_test/sheets")
+        dados = data.load(files, dados)
+        result_data = parse(dados, "mppe/12/2022")
+
+        # Converto o resultado do parser, em dict
+        result_to_dict = MessageToDict(result_data)
+
+        self.assertEqual(expected_12_2022, result_to_dict["contraCheque"][0])
+
+    def test_mppe_01_2023(self):
+        self.maxDiff = None
+        # Json com a saida esperada
+        with open("src/output_test/expected/expected_mppe_01_2023.json", "r") as fp:
+            expected_01_2023 = json.load(fp)
+
+        files = [
+            "src/output_test/sheets/MPPE-contracheques-01-2023.xls",
+            "src/output_test/sheets/MPPE-indenizacoes-01-2023.xlsx",
+        ]
+
+        dados = data.Data("2023", "01", "MPPE", "src/output_test/sheets")
+        dados = data.load(files, dados)
+        result_data = parse(dados, "mppe/01/2023")
+
+        # Converto o resultado do parser, em dict
+        result_to_dict = MessageToDict(result_data)
+
+        self.assertEqual(expected_01_2023, result_to_dict["contraCheque"][0])
+
     def test_mprj_01_2021(self):
         self.maxDiff = None
         # Json com a saida esperada
