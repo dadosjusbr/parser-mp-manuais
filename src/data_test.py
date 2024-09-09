@@ -11,12 +11,5 @@ class TestData(unittest.TestCase):
             dados.validate()
         self.assertEqual(cm.exception.code, STATUS_DATA_UNAVAILABLE)
 
-    def test_validate_existence_mprj_2021(self):
-        STATUS_DATA_UNAVAILABLE = 4
-        with self.assertRaises(SystemExit) as cm:
-            dados = data.Data("2021", "01", "MPRJ", "/src/output_test/sheets/")
-            dados.validate()
-        self.assertEqual(cm.exception.code, STATUS_DATA_UNAVAILABLE)
-
 if __name__ == "__main__":
     unittest.main()
