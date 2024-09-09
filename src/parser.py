@@ -305,6 +305,8 @@ def parse(data, colect_key):
     # MPES mudou o formato de sua planilha de indenizações diversas vezes entre 2021 e 2022
     if data.court.casefold() == "mpes":
         update_employees_mpes(data, employees)
+    elif data.court.casefold() == "mppe":
+        update_employees_mppe(data, employees)
     elif data.court.casefold() == "mprj":
         update_employees_mprj(data, employees)
     else:
