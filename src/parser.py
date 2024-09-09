@@ -196,10 +196,13 @@ def update_employees(file_indenizacoes, employees, court):
                 employees[registration] = emp
     return employees
 
+
 def update_employees_mppe(data, employees):
     if int(data.year) == 2021 and int(data.month) < 12:
         header = "mppe-01-2021"
-    elif (int(data.year) == 2021 and int(data.month) == 12) or (int(data.year) == 2022 and int(data.month) < 12):
+    elif (int(data.year) == 2021 and int(data.month) == 12) or (
+        int(data.year) == 2022 and int(data.month) < 12
+    ):
         header = "mppe-12-2021"
     elif int(data.year) == 2022 and int(data.month) == 12:
         header = "mppe-12-2022"
@@ -217,8 +220,9 @@ def update_employees_mppe(data, employees):
             remu = remunerations(row, header)
             emp.remuneracoes.MergeFrom(remu)
             employees[registration] = emp
-    
+
     return employees
+
 
 def update_employees_mpes(data, employees):
     # Os diversos formatos do MPES em 2021 possui suas rubricas em colunas,
