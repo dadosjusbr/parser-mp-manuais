@@ -148,3 +148,25 @@ class TestParser(unittest.TestCase):
         result_to_dict = MessageToDict(result_data)
 
         self.assertEqual(expected_01_2022, result_to_dict["contraCheque"][0])
+        
+    # Problemas com colunas nulas resultava em rubricas com valores incorretos
+    def test_mprn_01_2021(self):
+        self.maxDiff = None
+        # Json com a saida esperada
+        with open("src/output_test/expected/expected_mprn_01_2021.json", "r") as fp:
+            expected_01_2021 = json.load(fp)
+
+        files = [
+            "src/output_test/sheets/MPRN-contracheques-01-2021.ods",
+            "src/output_test/sheets/MPRN-indenizacoes-01-2021.ods",
+        ]
+
+        dados = data.Data("2021", "01", "MPRN", "src/output_test/sheets")
+        dados = data.load(files, dados)
+        result_data = parse(dados, "mprn/01/2021")
+
+        # Converto o resultado do parser, em dict
+        result_to_dict = MessageToDict(result_data)
+
+        self.assertEqual(expected_01_2021, result_to_dict["contraCheque"][0])
+
