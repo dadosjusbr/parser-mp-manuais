@@ -15,7 +15,7 @@ class TestData(unittest.TestCase):
         # Sem dados para o MPSP em 2021
         STATUS_DATA_UNAVAILABLE = 4
         with self.assertRaises(SystemExit) as cm:
-            dados = data.Data("2021", "01", "MPPI", "src/output_test/sheets/")
+            dados = data.Data("2021", "01", "MPSP", "src/output_test/sheets/")
             dados.validate()
         self.assertEqual(cm.exception.code, STATUS_DATA_UNAVAILABLE)
 
