@@ -235,6 +235,36 @@ def update_employees_mpes(data, employees):
             employees[employee] = emp
     return employees
 
+def update_employees_mpse(data, employees):
+    # MPSE mudou sua estrutura (rubricas) diversas vezes entre 2021 e 2023
+    if int(data.year) == 2021 and int(data.month) == 1:
+        header = "mpse-01-2021"
+    elif (int(data.year) == 2021 and int(data.month) > 1) or (int(data.year) == 2022 and int(data.month) < 3):
+        header = "mpse-02-2021"
+    elif int(data.year) == 2022 and int(data.month) in [3,4,5,6,7]:
+        header = "mpse-03-2022"
+    elif int(data.year) == 2022 and int(data.month) in [8, 9]:
+        header = "mpse-08-2022"
+    elif (int(data.year) == 2022 and int(data.month) > 9) or (int(data.year) == 2023 and int(data.month) < 8):
+        header = "mpse-10-2022"
+    elif int(data.year) == 2023 and int(data.month) in [8, 9]:
+        header = "mpse-08-2023"
+    else:
+        header = "mpse-10-2023"
+        
+    for row in data.indenizatorias:
+        row = [x for x in row if not pd.isna(x)]
+        registration = row[0]
+
+        if type(registration) != str and not pd.isna(registration):
+            registration = str(int(registration))
+
+        if registration in employees.keys():
+            emp = employees[registration]
+            remu = remunerations(row, header)
+            emp.remuneracoes.MergeFrom(remu)
+            employees[registration] = emp
+
 
 def parse(data, colect_key):
     employees = {}
@@ -244,9 +274,11 @@ def parse(data, colect_key):
         parse_employees(data.contracheque, colect_key, data.court.casefold())
     )
 
-    # MPES mudou o formato de sua planilha de indenizações diversas vezes entre 2021 e 2022
+    # MPES e MPSE mudaram o formato de sua planilha de indenizações diversas vezes entre 2021 e 2023
     if data.court.casefold() == "mpes":
         update_employees_mpes(data, employees)
+    elif data.court.casefold() == "mpse":
+        update_employees_mpse(data, employees)
     else:
         update_employees(data.indenizatorias, employees, data.court.casefold())
 
