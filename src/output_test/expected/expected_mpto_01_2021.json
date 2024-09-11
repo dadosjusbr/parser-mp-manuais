@@ -1,0 +1,98 @@
+{
+    "idContraCheque": "mpto/01/2021/1",
+    "chaveColeta": "mpto/01/2021",
+    "nome": "ABEL ANDRADE LEAL JUNIOR",
+    "matricula": "32201",
+    "funcao": "02° PROMOTOR DE JUSTIÇA DA CAPITAL, CHEFE DE GABINETE DE PROCURADOR-GERAL DE JUSTIÇA",
+    "localTrabalho": "02ª PROMOTORIA DE JUSTIÇA DA CAPITAL",
+    "ativo": true,
+    "remuneracoes": {
+        "remuneracao": [
+            {
+                "categoria": "REMUNERAÇÃO BÁSICA",
+                "item": "REMUNERAÇÃO DO CARGO EFETIVO",
+                "valor": 33689.11
+            },
+            {
+                "categoria": "REMUNERAÇÃO BÁSICA",
+                "item": "OUTRAS VERBAS REMUNERATÓRIAS, LEGAIS OU JUDICIAIS"
+            },
+            {
+                "categoria": "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA",
+                "item": "FUNÇÃO DE CONFIANÇA OU CARGO EM COMISSÃO",
+                "valor": 6737.82
+            },
+            {
+                "categoria": "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA",
+                "item": "GRATIFICAÇÃO NATALINA"
+            },
+            {
+                "categoria": "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA",
+                "item": "FÉRIAS CONSTITUCIONAIS"
+            },
+            {
+                "categoria": "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA",
+                "item": "ABONO DE PERMANÊNCIA"
+            },
+            {
+                "natureza": "D",
+                "categoria": "OBRIGATÓRIOS/LEGAIS",
+                "item": "CONTRIBUIÇÃO PREVIDENCIÁRIA",
+                "valor": -4716.48
+            },
+            {
+                "natureza": "D",
+                "categoria": "OBRIGATÓRIOS/LEGAIS",
+                "item": "IMPOSTO DE RENDA",
+                "valor": -8639.27
+            },
+            {
+                "natureza": "D",
+                "categoria": "OBRIGATÓRIOS/LEGAIS",
+                "item": "RETENÇÃO POR TETO CONSTITUCIONAL",
+                "valor": -1133.61
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Auxílio-Alimentação",
+                "valor": 3400.0,
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Auxílio-Moradia",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Férias Indenizadas",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Licença Prêmio Indenizada",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Programa de Aposentadoria Incentivada",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Verbas Rescisórias",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Cumulação",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Complemento por Entrância",
+                "tipoReceita": "O"
+            }
+        ]
+    }
+}
