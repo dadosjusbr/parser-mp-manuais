@@ -61,6 +61,7 @@ def parse_employees(file, colect_key, court):
                     continue
                 # MPRN não possui lotação
                 elif court == "mprn":
+                    new_row = row
                     registration = str(new_row[1])
                     name = new_row[0]
                     funcao = new_row[2]
@@ -265,6 +266,7 @@ def update_employees_mpes(data, employees):
             employees[employee] = emp
     return employees
 
+
 def update_employees_mprj(data, employees):
     # Mudança de formato de planilha do MPES em alguns meses
     # em 2022 e 2023
@@ -281,10 +283,42 @@ def update_employees_mprj(data, employees):
 
     for row in data.indenizatorias:
         registration = row[0]
-
         
         if type(registration) != str and not pd.isna(registration):
             registration = str(int(registration)).zfill(8)
+            
+        if registration in employees.keys():
+            emp = employees[registration]
+            remu = remunerations(row, header)
+            emp.remuneracoes.MergeFrom(remu)
+            employees[registration] = emp
+
+    return employees
+        
+
+def update_employees_mpsp(data, employees):
+    header = "mpsp"
+
+    if int(data.year) == 2022:
+        if (int(data.month) == 2):
+            header = "mpsp-02-2022"
+        elif (int(data.month) in [3, 4, 5, 6, 7]):
+            header = "mpsp-03-2022"
+        elif (int(data.month) in [8, 9, 10, 11, 12]):
+            header = "mpsp-08-2022"
+    elif int(data.year) == 2023:
+        if (int(data.month) == 1):
+            header = "mpsp-01-2023"
+        elif (int(data.month) in [2, 3, 4, 5, 6]):
+            header = "mpsp-08-2022"
+        elif (int(data.month) in [7, 8, 9, 10, 11, 12]):
+            header = "mpsp-03-2022"
+
+    for row in data.indenizatorias:
+        registration = row[0]
+
+        if type(registration) != str and not pd.isna(registration):
+                registration = str(int(registration))
 
         if registration in employees.keys():
             emp = employees[registration]
@@ -294,6 +328,7 @@ def update_employees_mprj(data, employees):
 
     return employees
 
+ 
 def parse(data, colect_key):
     employees = {}
     payroll = Coleta.FolhaDePagamento()
@@ -309,6 +344,8 @@ def parse(data, colect_key):
         update_employees_mppe(data, employees)
     elif data.court.casefold() == "mprj":
         update_employees_mprj(data, employees)
+    elif data.court.casefold() == "mpsp":
+        update_employees_mpsp(data, employees)
     else:
         update_employees(data.indenizatorias, employees, data.court.casefold())
 

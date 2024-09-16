@@ -18,6 +18,10 @@ CONTRACHEQUE_MPPI = "contracheque-mppi"
 INDENIZACOES_MPPI = "indenizacoes-mppi"
 CONTRACHEQUE_MPSP = "contracheque-mpsp"
 INDENIZACOES_MPSP = "indenizacoes-mpsp"
+INDENIZACOES_MPSP_02_2022 = "indenizacoes-mpsp-02-2022"
+INDENIZACOES_MPSP_03_2022 = "indenizacoes-mpsp-03-2022"
+INDENIZACOES_MPSP_08_2022 = "indenizacoes-mpsp-08-2022"
+INDENIZACOES_MPSP_01_2023 = "indenizacoes-mpsp-01-2023"
 CONTRACHEQUE_MPAC = "contracheque-mpac"
 INDENIZACOES_MPAC = "indenizacoes-mpac"
 CONTRACHEQUE_MPAL = "contracheque-mpal"
@@ -439,11 +443,40 @@ HEADERS = {
     INDENIZACOES_MPSP: {
         "Auxílio Alimentação": 4,
         "Férias em Pecúnia": 5,
+        "Assistência Saúde": 6,
+        "Gratificação Cumulativa": 7,
+        "Gratificação de Natureza Especial": 8,
+        "Gratificação de Grupo de Atuação Especial": 9,
+    },
+    INDENIZACOES_MPSP_02_2022: {
+        "Auxílio Alimentação": 4,
+        "Assistência Saúde": 5,
+        "Gratificação Cumulativa": 6,
+        "Gratificação de Natureza Especial": 7,
+        "Gratificação de Grupo de Atuação Especial": 8,
+    },
+    INDENIZACOES_MPSP_03_2022: {
+        "Auxílio Alimentação": 4,
+        "Férias em Pecúnia": 5,
         "Licença Prêmio em Pecúnia": 6,
         "Assistência Saúde": 7,
         "Gratificação Cumulativa": 8,
         "Gratificação de Natureza Especial": 9,
         "Gratificação de Grupo de Atuação Especial": 10,
+    },
+    INDENIZACOES_MPSP_08_2022: {
+        "Auxílio Alimentação": 4,
+        "Férias em Pecúnia": 5,
+        "Licença Prêmio em Pecúnia": 6,
+        "Assistência Saúde": 7,
+        "Gratificação Cumulativa": 8,
+        "Gratificação de Natureza Especial": 9,
+    },
+    INDENIZACOES_MPSP_01_2023: {
+        "Auxílio Alimentação": 4,
+        "Assistência Saúde": 5,
+        "Gratificação Cumulativa": 6,
+        "Gratificação de Natureza Especial": 7,
     },
     CONTRACHEQUE_MPAC: {
         "REMUNERAÇÃO BÁSICA": {
