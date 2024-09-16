@@ -1,0 +1,324 @@
+{
+    "idContraCheque": "mppe/12/2022/1",
+    "chaveColeta": "mppe/12/2022",
+    "nome": "ADALBERTO MENDES PINTO VIEIRA",
+    "matricula": "1771124",
+    "funcao": "PROCURADOR DE JUSTICA                             ",
+    "localTrabalho": "GABINETE 4 PROCURADOR JUSTICA CRIMINAL            ",
+    "ativo": true,
+    "remuneracoes": {
+        "remuneracao": [
+            {
+                "categoria": "REMUNERAÇÃO BÁSICA",
+                "item": "Remuneração do Cargo Efetivo",
+                "valor": 35462.22
+            },
+            {
+                "categoria": "REMUNERAÇÃO BÁSICA",
+                "item": "Outras Verbas Remuneratórias, Legais ou Judiciais"
+            },
+            {
+                "categoria": "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA",
+                "item": "Função de Confiança"
+            },
+            {
+                "categoria": "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA",
+                "item": "Gratificação Natalina"
+            },
+            {
+                "categoria": "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA",
+                "item": "Férias (1/3 constitucional)"
+            },
+            {
+                "categoria": "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA",
+                "item": "Abono de Permanência",
+                "valor": 4964.71
+            },
+            {
+                "natureza": "D",
+                "categoria": "OBRIGATÓRIOS/LEGAIS",
+                "item": "Contribuição Previdenciária",
+                "valor": -5795.45
+            },
+            {
+                "natureza": "D",
+                "categoria": "OBRIGATÓRIOS/LEGAIS",
+                "item": "Imposto de Renda",
+                "valor": -11069.9
+            },
+            {
+                "natureza": "D",
+                "categoria": "OBRIGATÓRIOS/LEGAIS",
+                "item": "Retenção por Teto Constitucional"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0053-L PREM S/TRB",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0243-AUX TRANSP",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0261-AUX MORADIA",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0269-AUX REFEICAO",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0270-AUX ALIM",
+                "valor": 1874.0,
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0272-AUX SAUDE",
+                "valor": 2441.15,
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0098-ABON PER ATR",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0099-AB PERM RRA",
+                "valor": 830.74,
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0201-DIF ENTRANC",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0244-ADC SERV EXT",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0251-SERV EXT PLT",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0265-IND FERIAS",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0267-ADC AT ESPEC",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0271-GRT SUB FGMP",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0275-AD EXERCICIO",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0279-ADIC PR/TEMP",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0400-VENCIM ATR",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0401-DIF ENTR ATR",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0403-QUINQ ATR",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0408-AB FER PR AT",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0416-PENS AL ATR",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0420-INDZ ASS ATR",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0425-INDZ DIR ATR",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0426-13 SAL ATR",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0429-INDZ COO ATR",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0434-AD L16307 AT",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0435-SUBSIDIO ATR",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0443-AUX TRP ATR",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0444-AD SV EX ATR",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0451-SV EX PL ATR",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0459-COM LIC ATR",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0463-A FERIAS ATR",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0465-IND FER ATR",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0467-AD AT ES ATR",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0469-AUX REF ATR",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0470-AUX ALIM ATR",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0471-GR SU FG ATR",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0472-AUX SAUDE AT",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0475-ADIC EXE ATR",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0479-AD PR/TP ATR",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0480-GRT FGMP ATR",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0483-IN CGSMP ATR",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0486-IND OUV ATR",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0493-IND PGJ ATR",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0494-IND SPGJ ATR",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0496-IND SGMP ATR",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "0497-IND CGPG ATR",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "522 ATS.TRIBUTAV",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "523 ATS.N.TRIBUT",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "558 PAE NTRB ATR",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "559 PAE TRIB ATR",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "563 VAN.EXER.ATU",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "564 VAN.EXER.ANT",
+                "tipoReceita": "O"
+            }
+        ]
+    }
+}

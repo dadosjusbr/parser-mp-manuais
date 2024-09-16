@@ -198,6 +198,33 @@ def update_employees(file_indenizacoes, employees, court):
     return employees
 
 
+def update_employees_mppe(data, employees):
+    if int(data.year) == 2021 and int(data.month) < 12:
+        header = "mppe-01-2021"
+    elif (int(data.year) == 2021 and int(data.month) == 12) or (
+        int(data.year) == 2022 and int(data.month) < 12
+    ):
+        header = "mppe-12-2021"
+    elif int(data.year) == 2022 and int(data.month) == 12:
+        header = "mppe-12-2022"
+    else:
+        header = "mppe-01-2023"
+
+    for row in data.indenizatorias:
+        registration = row[0]
+
+        if type(registration) != str and not pd.isna(registration):
+            registration = str(int(registration))
+
+        if registration in employees.keys():
+            emp = employees[registration]
+            remu = remunerations(row, header)
+            emp.remuneracoes.MergeFrom(remu)
+            employees[registration] = emp
+
+    return employees
+
+
 def update_employees_mpes(data, employees):
     # Os diversos formatos do MPES em 2021 possui suas rubricas em colunas,
     # isto é, precisamos listar suas rubricas e interamos apenas pelos seus valores,
@@ -236,6 +263,38 @@ def update_employees_mpes(data, employees):
             employees[employee] = emp
     return employees
 
+def update_employees_mpsp(data, employees):
+    header = "mpsp"
+
+    if int(data.year) == 2022:
+        if (int(data.month) == 2):
+            header = "mpsp-02-2022"
+        elif (int(data.month) in [3, 4, 5, 6, 7]):
+            header = "mpsp-03-2022"
+        elif (int(data.month) in [8, 9, 10, 11, 12]):
+            header = "mpsp-08-2022"
+    elif int(data.year) == 2023:
+        if (int(data.month) == 1):
+            header = "mpsp-01-2023"
+        elif (int(data.month) in [2, 3, 4, 5, 6]):
+            header = "mpsp-08-2022"
+        elif (int(data.month) in [7, 8, 9, 10, 11, 12]):
+            header = "mpsp-03-2022"
+
+    for row in data.indenizatorias:
+        registration = row[0]
+
+        if type(registration) != str and not pd.isna(registration):
+                registration = str(int(registration))
+
+        if registration in employees.keys():
+            emp = employees[registration]
+            remu = remunerations(row, header)
+            emp.remuneracoes.MergeFrom(remu)
+            employees[registration] = emp
+
+    return employees
+
 
 def parse(data, colect_key):
     employees = {}
@@ -248,6 +307,10 @@ def parse(data, colect_key):
     # MPES mudou o formato de sua planilha de indenizações diversas vezes entre 2021 e 2022
     if data.court.casefold() == "mpes":
         update_employees_mpes(data, employees)
+    elif data.court.casefold() == "mppe":
+        update_employees_mppe(data, employees)
+    elif data.court.casefold() == "mpsp":
+        update_employees_mpsp(data, employees)
     else:
         update_employees(data.indenizatorias, employees, data.court.casefold())
 
