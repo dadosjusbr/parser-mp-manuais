@@ -1,22 +1,21 @@
 {
     "idContraCheque": "mpse/01/2021/1",
     "chaveColeta": "mpse/01/2021",
-    "nome": "ADEILDO JOSE DA SILVA",
-    "matricula": "1741",
-    "funcao": "ANALISTA DO MP- CONTADOR",
-    "localTrabalho": "DIVISAO DE PERICIA CONTABIL - GAAE",
+    "nome": "ADEMILTON DE OLIVEIRA SANTOS",
+    "matricula": "401",
+    "funcao": "PROMOTOR DE JUSTIÇA DE ENTR. FINAL",
+    "localTrabalho": "2ª PROMOTORIA DE JUSTICA CRIMINAL - ITABAIANA",
     "ativo": true,
     "remuneracoes": {
         "remuneracao": [
             {
                 "categoria": "REMUNERAÇÃO BÁSICA",
                 "item": "Remunerção do Cargo Efetivo",
-                "valor": 5062.24
+                "valor": 33689.11
             },
             {
                 "categoria": "REMUNERAÇÃO BÁSICA",
-                "item": "Outras Verbas Remuneratórias, Legais ou Judiciais",
-                "valor": 2024.9
+                "item": "Outras Verbas Remuneratórias, Legais ou Judiciais"
             },
             {
                 "categoria": "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA",
@@ -32,19 +31,20 @@
             },
             {
                 "categoria": "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA",
-                "item": "Abono de Permanência"
+                "item": "Abono de Permanência",
+                "valor": 4716.48
             },
             {
                 "natureza": "D",
                 "categoria": "OBRIGATÓRIOS/LEGAIS",
                 "item": "Contribuição Previdenciária",
-                "valor": -992.2
+                "valor": -4716.48
             },
             {
                 "natureza": "D",
                 "categoria": "OBRIGATÓRIOS/LEGAIS",
                 "item": "Imposto de Renda",
-                "valor": -702.47
+                "valor": -8395.15
             },
             {
                 "natureza": "D",
@@ -54,7 +54,7 @@
             {
                 "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
                 "item": "Auxílio Saúde (01)",
-                "valor": 1328.07,
+                "valor": 1803.13,
                 "tipoReceita": "O"
             },
             {

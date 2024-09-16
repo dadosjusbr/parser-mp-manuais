@@ -1,22 +1,20 @@
 {
     "idContraCheque": "mpse/10/2023/1",
     "chaveColeta": "mpse/10/2023",
-    "nome": "ADEILDO JOSE DA SILVA",
-    "matricula": "1741",
-    "funcao": "ANALISTA DO MP- CONTADOR",
-    "localTrabalho": "DIVISAO DE MATERIAL/DM/DA/SG",
+    "nome": "ADELIA MOREIRA PESSOA",
+    "matricula": "158",
+    "funcao": "PROMOTOR DE JUSTIÇA DE ENTR. FINAL",
+    "localTrabalho": "INATIVOS",
     "ativo": true,
     "remuneracoes": {
         "remuneracao": [
             {
                 "categoria": "REMUNERAÇÃO BÁSICA",
-                "item": "Remunerção do Cargo Efetivo",
-                "valor": 5858.58
+                "item": "Remunerção do Cargo Efetivo"
             },
             {
                 "categoria": "REMUNERAÇÃO BÁSICA",
-                "item": "Outras Verbas Remuneratórias, Legais ou Judiciais",
-                "valor": 2343.43
+                "item": "Outras Verbas Remuneratórias, Legais ou Judiciais"
             },
             {
                 "categoria": "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA",
@@ -37,14 +35,12 @@
             {
                 "natureza": "D",
                 "categoria": "OBRIGATÓRIOS/LEGAIS",
-                "item": "Contribuição Previdenciária",
-                "valor": -1148.28
+                "item": "Contribuição Previdenciária"
             },
             {
                 "natureza": "D",
                 "categoria": "OBRIGATÓRIOS/LEGAIS",
-                "item": "Imposto de Renda",
-                "valor": -1044.04
+                "item": "Imposto de Renda"
             },
             {
                 "natureza": "D",
@@ -54,7 +50,7 @@
             {
                 "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
                 "item": "Auxílio Saúde (01)",
-                "valor": 1612.0,
+                "valor": 2231.0,
                 "tipoReceita": "O"
             },
             {
@@ -65,7 +61,6 @@
             {
                 "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
                 "item": "Auxílio-Alimentação (03)",
-                "valor": 1275.0,
                 "tipoReceita": "O"
             },
             {
@@ -96,7 +91,6 @@
             {
                 "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
                 "item": "Indenizações Férias/Licença-Prêmio (08)",
-                "valor": 4101.01,
                 "tipoReceita": "O"
             },
             {

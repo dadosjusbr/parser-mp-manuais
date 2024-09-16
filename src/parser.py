@@ -51,9 +51,18 @@ def parse_employees(file, colect_key, court):
                     new_row = ["" if item == " " else item for item in new_row]
                     while len(new_row) != 18:
                         new_row.insert(2, "")
-
+                
+                # Os dados do MPSE inclui também dados de servidores,
+                # então filtramos para pegar apenas os dados de membros
+                if court == "mpse" and new_row[2] not in [
+                    "PROMOTOR DE JUSTIÇA DE ENTR. FINAL",
+                    "PROMOTOR DE JUSTIÇA DE ENTR. INICIAL",
+                    "PROCURADOR DE JUSTIÇA",
+                    "PROMOTOR DE JUSTIÇA SUBSTITUTO",
+                ]:
+                    continue
                 # MPPA possui uma linha com o somatório de cada rubrica
-                if (
+                elif (
                     (court == "mppa" and len(new_row) == 15)
                     or (court == "mppe" and "página" in registration.casefold())
                     or (court == "mpes" and len(new_row) == 14)

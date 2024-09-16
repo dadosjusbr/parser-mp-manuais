@@ -1,22 +1,21 @@
 {
     "idContraCheque": "mpse/08/2022/1",
     "chaveColeta": "mpse/08/2022",
-    "nome": "ADEILDO JOSE DA SILVA",
-    "matricula": "1741",
-    "funcao": "ANALISTA DO MP- CONTADOR",
-    "localTrabalho": "DIVISAO DE MATERIAL/DM/DA/SG",
+    "nome": "ADEMILTON DE OLIVEIRA SANTOS",
+    "matricula": "401",
+    "funcao": "PROMOTOR DE JUSTIÇA DE ENTR. FINAL",
+    "localTrabalho": "2ª PROMOTORIA DE JUSTICA CRIMINAL - ITABAIANA",
     "ativo": true,
     "remuneracoes": {
         "remuneracao": [
             {
                 "categoria": "REMUNERAÇÃO BÁSICA",
                 "item": "Remunerção do Cargo Efetivo",
-                "valor": 5214.11
+                "valor": 33689.11
             },
             {
                 "categoria": "REMUNERAÇÃO BÁSICA",
-                "item": "Outras Verbas Remuneratórias, Legais ou Judiciais",
-                "valor": 2085.64
+                "item": "Outras Verbas Remuneratórias, Legais ou Judiciais"
             },
             {
                 "categoria": "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA",
@@ -32,19 +31,20 @@
             },
             {
                 "categoria": "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA",
-                "item": "Abono de Permanência"
+                "item": "Abono de Permanência",
+                "valor": 4716.48
             },
             {
                 "natureza": "D",
                 "categoria": "OBRIGATÓRIOS/LEGAIS",
                 "item": "Contribuição Previdenciária",
-                "valor": -1021.97
+                "valor": -4716.48
             },
             {
                 "natureza": "D",
                 "categoria": "OBRIGATÓRIOS/LEGAIS",
                 "item": "Imposto de Renda",
-                "valor": -846.26
+                "valor": -9784.82
             },
             {
                 "natureza": "D",
@@ -54,7 +54,7 @@
             {
                 "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
                 "item": "Auxílio Saúde (01)",
-                "valor": 1521.0,
+                "valor": 2105.0,
                 "tipoReceita": "O"
             },
             {
@@ -156,7 +156,6 @@
             {
                 "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
                 "item": "Grat. Atividade Ensino (19)",
-                "valor": 340.0,
                 "tipoReceita": "O"
             },
             {
@@ -242,6 +241,7 @@
             {
                 "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
                 "item": "Grat. por Acumulação de Acervo (36)",
+                "valor": 5053.37,
                 "tipoReceita": "O"
             },
             {
