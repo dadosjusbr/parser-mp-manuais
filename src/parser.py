@@ -61,6 +61,7 @@ def parse_employees(file, colect_key, court):
                     continue
                 # MPRN não possui lotação
                 elif court == "mprn":
+                    new_row = row
                     registration = str(new_row[1])
                     name = new_row[0]
                     funcao = new_row[2]
