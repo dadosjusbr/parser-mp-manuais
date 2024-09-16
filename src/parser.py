@@ -187,6 +187,9 @@ def update_employees(file_indenizacoes, employees, court):
             else:
                 registration = row[0]
 
+            if type(registration) != str and not pd.isna(registration) and court == "mprj":
+                registration = str(int(registration)).zfill(8)
+
             if type(registration) != str and not pd.isna(registration):
                 registration = str(int(registration))
 
@@ -263,6 +266,36 @@ def update_employees_mpes(data, employees):
             employees[employee] = emp
     return employees
 
+
+def update_employees_mprj(data, employees):
+    # Mudança de formato de planilha do MPES em alguns meses
+    # em 2022 e 2023
+    header = "mprj"
+
+    if int(data.year) == 2022 and int(data.month) in [10]:
+        header = "mprj-10-2022"
+    elif int(data.year) == 2023:
+        if int(data.month) in [5, 6, 9, 10]:
+            header = "mprj-05-2023"
+        elif int(data.month) in [7, 8]:
+            header = "mprj-07-2023"
+        # 10
+
+    for row in data.indenizatorias:
+        registration = row[0]
+        
+        if type(registration) != str and not pd.isna(registration):
+            registration = str(int(registration)).zfill(8)
+            
+        if registration in employees.keys():
+            emp = employees[registration]
+            remu = remunerations(row, header)
+            emp.remuneracoes.MergeFrom(remu)
+            employees[registration] = emp
+
+    return employees
+        
+
 def update_employees_mpsp(data, employees):
     header = "mpsp"
 
@@ -295,7 +328,7 @@ def update_employees_mpsp(data, employees):
 
     return employees
 
-
+ 
 def parse(data, colect_key):
     employees = {}
     payroll = Coleta.FolhaDePagamento()
@@ -309,6 +342,8 @@ def parse(data, colect_key):
         update_employees_mpes(data, employees)
     elif data.court.casefold() == "mppe":
         update_employees_mppe(data, employees)
+    elif data.court.casefold() == "mprj":
+        update_employees_mprj(data, employees)
     elif data.court.casefold() == "mpsp":
         update_employees_mpsp(data, employees)
     else:
