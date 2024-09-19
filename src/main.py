@@ -5,6 +5,7 @@ from parser import parse
 from coleta import coleta_pb2 as Coleta, IDColeta
 from google.protobuf.timestamp_pb2 import Timestamp
 from google.protobuf import text_format
+from datetime import datetime
 
 if "COURT" in os.environ:
     court = os.environ["COURT"]
@@ -43,11 +44,17 @@ def parse_execution(data, file_names):
     coleta.orgao = court.casefold()
     coleta.mes = int(month)
     coleta.ano = int(year)
-    coleta.repositorio_parser = "https://github.com/dadosjusbr/parser-mp"
+    coleta.repositorio_parser = "https://github.com/dadosjusbr/parser-mp-manuais"
     coleta.versao_parser = PARSER_VERSION
-    coleta.arquivos.extend(file_names)
+
+    # O item 0 de file_names é o timestamp da coleta manual
+    coleta.arquivos.extend(file_names[1:])
+
+    # Usando a data e hora da coleta manual
     timestamp = Timestamp()
-    timestamp.GetCurrentTime()
+
+    dt = datetime.strptime(file_names[0], "%Y-%m-%dT%H:%M:%S.%fZ")
+    timestamp.FromDatetime(dt)
     coleta.timestamp_coleta.CopyFrom(timestamp)
 
     # Consolida folha de pagamento
