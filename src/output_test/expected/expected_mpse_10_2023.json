@@ -1,20 +1,22 @@
 {
     "idContraCheque": "mpse/10/2023/1",
     "chaveColeta": "mpse/10/2023",
-    "nome": "ADELIA MOREIRA PESSOA",
-    "matricula": "158",
+    "nome": "ADEMILTON DE OLIVEIRA SANTOS",
+    "matricula": "401",
     "funcao": "PROMOTOR DE JUSTIÇA DE ENTR. FINAL",
-    "localTrabalho": "INATIVOS",
+    "localTrabalho": "2ª PROMOTORIA DE JUSTICA CRIMINAL - ITABAIANA",
     "ativo": true,
     "remuneracoes": {
         "remuneracao": [
             {
                 "categoria": "REMUNERAÇÃO BÁSICA",
-                "item": "Remunerção do Cargo Efetivo"
+                "item": "Remunerção do Cargo Efetivo",
+                "valor": 35710.45
             },
             {
                 "categoria": "REMUNERAÇÃO BÁSICA",
-                "item": "Outras Verbas Remuneratórias, Legais ou Judiciais"
+                "item": "Outras Verbas Remuneratórias, Legais ou Judiciais",
+                "valor": 4022.35
             },
             {
                 "categoria": "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA",
@@ -30,17 +32,20 @@
             },
             {
                 "categoria": "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA",
-                "item": "Abono de Permanência"
+                "item": "Abono de Permanência",
+                "valor": 5562.59
             },
             {
                 "natureza": "D",
                 "categoria": "OBRIGATÓRIOS/LEGAIS",
-                "item": "Contribuição Previdenciária"
+                "item": "Contribuição Previdenciária",
+                "valor": -5562.59
             },
             {
                 "natureza": "D",
                 "categoria": "OBRIGATÓRIOS/LEGAIS",
-                "item": "Imposto de Renda"
+                "item": "Imposto de Renda",
+                "valor": -10041.56
             },
             {
                 "natureza": "D",
@@ -61,6 +66,7 @@
             {
                 "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
                 "item": "Auxílio-Alimentação (03)",
+                "valor": 1275.0,
                 "tipoReceita": "O"
             },
             {
@@ -116,6 +122,7 @@
             {
                 "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
                 "item": "Licença Compensatória categoria I (12)",
+                "valor": 5951.74,
                 "tipoReceita": "O"
             },
             {

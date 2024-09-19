@@ -1,16 +1,17 @@
 {
     "idContraCheque": "mpse/10/2022/1",
     "chaveColeta": "mpse/10/2022",
-    "nome": "ADELIA MOREIRA PESSOA",
-    "matricula": "158",
+    "nome": "ADEMILTON DE OLIVEIRA SANTOS",
+    "matricula": "401",
     "funcao": "PROMOTOR DE JUSTIÇA DE ENTR. FINAL",
-    "localTrabalho": "INATIVOS",
+    "localTrabalho": "2ª PROMOTORIA DE JUSTICA CRIMINAL - ITABAIANA",
     "ativo": true,
     "remuneracoes": {
         "remuneracao": [
             {
                 "categoria": "REMUNERAÇÃO BÁSICA",
-                "item": "Remunerção do Cargo Efetivo"
+                "item": "Remunerção do Cargo Efetivo",
+                "valor": 33689.11
             },
             {
                 "categoria": "REMUNERAÇÃO BÁSICA",
@@ -30,17 +31,20 @@
             },
             {
                 "categoria": "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA",
-                "item": "Abono de Permanência"
+                "item": "Abono de Permanência",
+                "valor": 4716.48
             },
             {
                 "natureza": "D",
                 "categoria": "OBRIGATÓRIOS/LEGAIS",
-                "item": "Contribuição Previdenciária"
+                "item": "Contribuição Previdenciária",
+                "valor": -4716.48
             },
             {
                 "natureza": "D",
                 "categoria": "OBRIGATÓRIOS/LEGAIS",
-                "item": "Imposto de Renda"
+                "item": "Imposto de Renda",
+                "valor": -9784.82
             },
             {
                 "natureza": "D",
@@ -61,6 +65,7 @@
             {
                 "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
                 "item": "Auxílio-Alimentação (03)",
+                "valor": 1203.0,
                 "tipoReceita": "O"
             },
             {
@@ -91,6 +96,7 @@
             {
                 "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
                 "item": "Indenizações Férias/Licença-Prêmio (08)",
+                "valor": 10000.0,
                 "tipoReceita": "O"
             },
             {
@@ -241,6 +247,7 @@
             {
                 "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
                 "item": "Grat. por Acumulação de Acervo (36)",
+                "valor": 5053.37,
                 "tipoReceita": "O"
             },
             {
