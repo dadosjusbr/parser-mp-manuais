@@ -1,0 +1,228 @@
+{
+    "idContraCheque": "mpse/01/2021/1",
+    "chaveColeta": "mpse/01/2021",
+    "nome": "ADEMILTON DE OLIVEIRA SANTOS",
+    "matricula": "401",
+    "funcao": "PROMOTOR DE JUSTIÇA DE ENTR. FINAL",
+    "localTrabalho": "2ª PROMOTORIA DE JUSTICA CRIMINAL - ITABAIANA",
+    "ativo": true,
+    "remuneracoes": {
+        "remuneracao": [
+            {
+                "categoria": "REMUNERAÇÃO BÁSICA",
+                "item": "Remunerção do Cargo Efetivo",
+                "valor": 33689.11
+            },
+            {
+                "categoria": "REMUNERAÇÃO BÁSICA",
+                "item": "Outras Verbas Remuneratórias, Legais ou Judiciais"
+            },
+            {
+                "categoria": "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA",
+                "item": "Função de Confiança ou Cargo em Comissão"
+            },
+            {
+                "categoria": "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA",
+                "item": "Gratificação Natalina"
+            },
+            {
+                "categoria": "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA",
+                "item": "Férias (1/3 constitucional)"
+            },
+            {
+                "categoria": "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA",
+                "item": "Abono de Permanência",
+                "valor": 4716.48
+            },
+            {
+                "natureza": "D",
+                "categoria": "OBRIGATÓRIOS/LEGAIS",
+                "item": "Contribuição Previdenciária",
+                "valor": -4716.48
+            },
+            {
+                "natureza": "D",
+                "categoria": "OBRIGATÓRIOS/LEGAIS",
+                "item": "Imposto de Renda",
+                "valor": -8395.15
+            },
+            {
+                "natureza": "D",
+                "categoria": "OBRIGATÓRIOS/LEGAIS",
+                "item": "Retenção por Teto Constitucional CONSTITUCIONAL"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Auxílio Saúde (01)",
+                "valor": 1803.13,
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Dif. Auxílio-Saúde (02)",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Auxílio-Alimentação (03)",
+                "valor": 1056.0,
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Dif. Auxílio-Alimentação (04)",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Auxílio-Interiorização (05)",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Dif. Auxílio-Interiorização (06)",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Dif. Auxílio Lei 8.625/93 (07)",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Indenizações Férias/Licença-Prêmio (08)",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Abono Pecuniário (09)",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Dif. Abono Pecuniário (09.1)",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Ressarcimentos (10)",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "GEO (11)",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Dif. GEO (12)",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Insalubridade (13)",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Dif. Insalubridade (14)",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Periculosidade (15)",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Dif. Periculosidade (16)",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Adicional Trabalho Técnico (17)",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Dif. Adicional Trabalho Técnico (18)",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Grat. Atividade Ensino (19)",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Substituições (20)",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Dif. Substituições (21)",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Cumulação (22)",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Dif. Cumulação (23)",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Representação de Direção (24)",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Dif. Representação de Direção (25)",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Grat. Turma Recursal (26)",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Dif. Grat. Turma Recursal (27)",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Grat. Difícil Provimento (28)",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Dif. Grat. Difícil Provimento (29)",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Grat. Assessor (30)",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Dif. Grat. Assessor (31)",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Representação GAECO (32)",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "Dif. Representação GAECO (33)",
+                "tipoReceita": "O"
+            }
+        ]
+    }
+}

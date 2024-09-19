@@ -50,6 +50,38 @@ def _readCSV(file):
     return data
 
 
+def _convert_file(file):
+    """
+    Converte os arquivos ODT que estão corrompidos.
+    """
+    subprocess.run(
+        ["libreoffice", "--headless", "--invisible", "--convert-to", "docx", file],
+        capture_output=True,
+        text=True,
+    )  # Pega a saída para não interferir no print dos dados
+    file_name = file.split(sep="/")[-1]
+    file_name = f'{file_name.split(sep=".")[0]}'
+
+    subprocess.run(
+        [
+            "libreoffice",
+            "--headless",
+            "--invisible",
+            "--convert-to",
+            "odt",
+            f"{file_name}.docx",
+        ],
+        capture_output=True,
+        text=True,
+    )  # Pega a saída para não interferir no print dos dados
+
+    file_name = f"{file_name}.odt"
+
+    # Move para o diretório passado por parâmetro
+    subprocess.run(["mv", file_name, f"{file}"])
+    return f"{file}"
+
+
 def load(file_names, data):
     """Carrega os arquivos passados como parâmetros.
      :param file_names: slice contendo os arquivos baixados pelo coletor.
@@ -77,7 +109,11 @@ def load(file_names, data):
         "mpac",
         "mpba",
     ] or (data.court.casefold() == "mpes" and int(data.year) != 2021):
-        data.contracheque = _readODS([c for c in file_names if "contracheque" in c][0])
+        if data.court.casefold() == "mpse":
+            data.contracheque = _readODS(_convert_file([c for c in file_names if "contracheque" in c][0]))
+        else:
+            data.contracheque = _readODS([c for c in file_names if "contracheque" in c][0])
+        
         data.indenizatorias = _readODS(
             [i for i in file_names if "indenizacoes" in i][0]
         )

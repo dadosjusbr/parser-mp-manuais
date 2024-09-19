@@ -19,5 +19,6 @@ class TestData(unittest.TestCase):
             dados.validate()
         self.assertEqual(cm.exception.code, STATUS_DATA_UNAVAILABLE)
 
+
 if __name__ == "__main__":
     unittest.main()
