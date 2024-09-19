@@ -131,7 +131,10 @@ def load(file_names, data):
     elif data.court.casefold() in ["mppe"] or (
         data.court.casefold() == "mpes" and int(data.year) == 2021
     ):
-        data.contracheque = _readXLSX([c for c in file_names if "contracheque" in c][0])
+        if data.court.casefold() == "mppe" and int(data.year) == 2023 and int(data.month) not in [5,6,8]:
+            data.contracheque = _readXLS([c for c in file_names if "contracheque" in c][0])
+        else:
+            data.contracheque = _readXLSX([c for c in file_names if "contracheque" in c][0])
         data.indenizatorias = _readXLSX(
             [i for i in file_names if "indenizacoes" in i][0]
         )
