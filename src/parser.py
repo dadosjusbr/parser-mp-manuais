@@ -382,6 +382,33 @@ def update_employees_mpse(data, employees):
 
     return employees
 
+def update_employees_mpto(data, employees):
+    if int(data.year) == 2021 and int(data.month) < 8:
+        header = "mpto-01-2021"
+    elif (int(data.year) == 2021 and int(data.month) >= 8) or (
+        int(data.year) == 2022 and int(data.month) < 3
+    ):
+        header = "mpto-08-2021"
+    elif int(data.year) == 2022 and int(data.month) in [3, 4, 5, 6]:
+        header = "mpto-03-2022"
+    else:
+        header = "mpto-07-2022"
+
+    for row in data.indenizatorias:
+        row = [x for x in row if not pd.isna(x)]
+        if len(row) > 0:
+            registration = row[0]
+
+            if type(registration) != str and not pd.isna(registration):
+                registration = str(int(registration))
+
+            if registration in employees.keys():
+                emp = employees[registration]
+                remu = remunerations(row, header)
+                emp.remuneracoes.MergeFrom(remu)
+                employees[registration] = emp
+
+    return employees
 
 def parse(data, colect_key):
     employees = {}
@@ -391,7 +418,7 @@ def parse(data, colect_key):
         parse_employees(data.contracheque, colect_key, data.court.casefold())
     )
 
-    # MPES e MPSE mudaram o formato de sua planilha de indenizações diversas vezes entre 2021 e 2023
+    # Alguns órgãos mudaram o formato de sua planilha de indenizações diversas vezes entre 2021 e 2023
     if data.court.casefold() == "mpes":
         update_employees_mpes(data, employees)
     elif data.court.casefold() == "mpse":
@@ -402,6 +429,8 @@ def parse(data, colect_key):
         update_employees_mprj(data, employees)
     elif data.court.casefold() == "mpsp":
         update_employees_mpsp(data, employees)
+    elif data.court.casefold() == "mpto":
+        update_employees_mpto(data, employees)
     else:
         update_employees(data.indenizatorias, employees, data.court.casefold())
 

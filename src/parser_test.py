@@ -669,3 +669,83 @@ class TestParser(unittest.TestCase):
         result_to_dict = MessageToDict(result_data)
 
         self.assertEqual(expected_10_2023, result_to_dict["contraCheque"][0])
+
+    def test_mpto_01_2021(self):
+        self.maxDiff = None
+        # Json com a saida esperada
+        with open("src/output_test/expected/expected_mpto_01_2021.json", "r") as fp:
+            expected_01_2021 = json.load(fp)
+
+        files = [
+            "src/output_test/sheets/MPTO-contracheques-01-2021.ods",
+            "src/output_test/sheets/MPTO-indenizacoes-01-2021.ods",
+        ]
+
+        dados = data.Data("2021", "01", "MPTO", "src/output_test/sheets")
+        dados = data.load(files, dados)
+        result_data = parse(dados, "mpto/01/2021")
+
+        # Converto o resultado do parser, em dict
+        result_to_dict = MessageToDict(result_data)
+
+        self.assertEqual(expected_01_2021, result_to_dict["contraCheque"][0])
+        
+    def test_mpto_08_2021(self):
+        self.maxDiff = None
+        # Json com a saida esperada
+        with open("src/output_test/expected/expected_mpto_08_2021.json", "r") as fp:
+            expected_08_2021 = json.load(fp)
+
+        files = [
+            "src/output_test/sheets/MPTO-contracheques-08-2021.ods",
+            "src/output_test/sheets/MPTO-indenizacoes-08-2021.ods",
+        ]
+
+        dados = data.Data("2021", "08", "MPTO", "src/output_test/sheets")
+        dados = data.load(files, dados)
+        result_data = parse(dados, "mpto/08/2021")
+
+        # Converto o resultado do parser, em dict
+        result_to_dict = MessageToDict(result_data)
+
+        self.assertEqual(expected_08_2021, result_to_dict["contraCheque"][0])
+        
+    def test_mpto_03_2022(self):
+        self.maxDiff = None
+        # Json com a saida esperada
+        with open("src/output_test/expected/expected_mpto_03_2022.json", "r") as fp:
+            expected_03_2022 = json.load(fp)
+
+        files = [
+            "src/output_test/sheets/MPTO-contracheques-03-2022.ods",
+            "src/output_test/sheets/MPTO-indenizacoes-03-2022.ods",
+        ]
+
+        dados = data.Data("2022", "03", "MPTO", "src/output_test/sheets")
+        dados = data.load(files, dados)
+        result_data = parse(dados, "mpto/03/2022")
+
+        # Converto o resultado do parser, em dict
+        result_to_dict = MessageToDict(result_data)        
+
+        self.assertEqual(expected_03_2022, result_to_dict["contraCheque"][0])
+        
+    def test_mpto_07_2022(self):
+        self.maxDiff = None
+        # Json com a saida esperada
+        with open("src/output_test/expected/expected_mpto_07_2022.json", "r") as fp:
+            expected_07_2022 = json.load(fp)
+
+        files = [
+            "src/output_test/sheets/MPTO-contracheques-07-2022.ods",
+            "src/output_test/sheets/MPTO-indenizacoes-07-2022.ods",
+        ]
+
+        dados = data.Data("2022", "07", "MPTO", "src/output_test/sheets")
+        dados = data.load(files, dados)
+        result_data = parse(dados, "mpto/07/2022")
+
+        # Converto o resultado do parser, em dict
+        result_to_dict = MessageToDict(result_data)
+
+        self.assertEqual(expected_07_2022, result_to_dict["contraCheque"][0])

@@ -8,7 +8,10 @@ INDENIZACOES_MPRJ_07_2023= "indenizacoes-mprj-07-2023"
 CONTRACHEQUE_MPRN = "contracheque-mprn"
 INDENIZACOES_MPRN = "indenizacoes-mprn"
 CONTRACHEQUE_MPTO = "contracheque-mpto"
-INDENIZACOES_MPTO = "indenizacoes-mpto"
+INDENIZACOES_MPTO_01_2021 = "indenizacoes-mpto-01-2021"
+INDENIZACOES_MPTO_08_2021 = "indenizacoes-mpto-08-2021"
+INDENIZACOES_MPTO_03_2022 = "indenizacoes-mpto-03-2022"
+INDENIZACOES_MPTO_07_2022 = "indenizacoes-mpto-07-2022"
 CONTRACHEQUE_MPPE = "contracheque-mppe"
 INDENIZACOES_MPPE_01_2021 = "indenizacoes-mppe-01-2021"
 INDENIZACOES_MPPE_12_2021 = "indenizacoes-mppe-12-2021"
@@ -198,12 +201,12 @@ HEADERS = {
             "ABONO DE PERMANÊNCIA": 9,
         },
         "OBRIGATÓRIOS/LEGAIS": {
-            "CONTRIBUIÇÃO PREVIDENCIÁRIA": 10,
-            "IMPOSTO DE RENDA": 11,
-            "RETENÇÃO POR TETO CONSTITUCIONAL": 12,
+            "CONTRIBUIÇÃO PREVIDENCIÁRIA": 13,
+            "IMPOSTO DE RENDA": 14,
+            "RETENÇÃO POR TETO CONSTITUCIONAL": 15,
         },
     },
-    INDENIZACOES_MPTO: {
+    INDENIZACOES_MPTO_01_2021: {
         "Auxílio-Alimentação": 4,
         "Auxílio-Moradia": 5,
         "Férias Indenizadas": 6,
@@ -212,6 +215,42 @@ HEADERS = {
         "Verbas Rescisórias": 9,
         "Cumulação": 10,
         "Complemento por Entrância": 11,
+    },
+    INDENIZACOES_MPTO_08_2021: {
+        "Auxílio-Alimentação": 4,
+        "Auxílio-Moradia": 5,
+        "Auxílio-Saúde": 6,
+        "Férias Indenizadas": 7,
+        "Licença Prêmio Indenizada": 8,
+        "Programa de Aposentadoria Incentivada": 9,
+        "Verbas Rescisórias": 10,
+        "Cumulação": 11,
+        "Complemento por Entrância": 12,
+    },
+    INDENIZACOES_MPTO_03_2022: {
+        "Auxílio-Alimentação": 4,
+        "Auxílio-Moradia": 5,
+        "Auxílio-Saúde": 6,
+        "Férias Indenizadas": 7,
+        "Licença Compensatória": 8,
+        "Licença Prêmio Indenizada": 9,
+        "Programa de Aposentadoria Incentivada": 10,
+        "Verbas Rescisórias": 11,
+        "Cumulação": 13,
+        "Complemento por Entrância": 14,
+    },
+    INDENIZACOES_MPTO_07_2022: {
+        "Auxílio-Alimentação":4,
+        "Auxílio-Moradia":5,
+        "Auxílio-Saúde":6,
+        "Férias Indenizadas":7,
+        "Licença Compensatória":8,
+        "Indenização de Plantão":9,
+        "Licença Prêmio Indenizada":10,
+        "Programa de Aposentadoria Incentivada":11,
+        "Verbas Rescisórias":12,
+        "Cumulação":14,
+        "Complemento por Entrância":15
     },
     CONTRACHEQUE_MPPE: {
         "REMUNERAÇÃO BÁSICA": {
