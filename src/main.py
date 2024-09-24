@@ -65,6 +65,7 @@ def parse_execution(data, file_names):
     rc = Coleta.ResultadoColeta()
     rc.folha.CopyFrom(payroll)
     rc.coleta.CopyFrom(coleta)
+    rc.metadados.CopyFrom(Coleta.Metadados())
 
     # Imprime a versão textual na saída padrão.
     print(text_format.MessageToString(rc), flush=True, end="")
