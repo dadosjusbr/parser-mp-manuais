@@ -164,10 +164,10 @@ class Data:
 
         if not (
             glob.glob(
-                f"{self.output_folder}/{self.court}-contracheques-{self.month}-{self.year}.*"
+                f"{self.output_folder}/{self.court.upper()}-contracheques-{self.month}-{self.year}.*"
             )
             and glob.glob(
-                f"{self.output_folder}/{self.court}-indenizacoes-{self.month}-{self.year}.*"
+                f"{self.output_folder}/{self.court.upper()}-indenizacoes-{self.month}-{self.year}.*"
             )
         ):
             sys.stderr.write(
