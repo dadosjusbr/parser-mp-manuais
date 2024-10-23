@@ -749,3 +749,223 @@ class TestParser(unittest.TestCase):
         result_to_dict = MessageToDict(result_data)
 
         self.assertEqual(expected_07_2022, result_to_dict["contraCheque"][0])
+        
+    def test_mpac_01_2021(self):
+        self.maxDiff = None
+        # Json com a saida esperada
+        with open("src/output_test/expected/expected_mpac_01_2021.json", "r") as fp:
+            expected_01_2021 = json.load(fp)
+
+        files = [
+            "src/output_test/sheets/MPAC-contracheques-01-2021.ods",
+            "src/output_test/sheets/MPAC-indenizacoes-01-2021.ods",
+        ]
+
+        dados = data.Data("2021", "01", "MPAC", "src/output_test/sheets")
+        dados = data.load(files, dados)
+        result_data = parse(dados, "mpac/01/2021")
+
+        # Converto o resultado do parser, em dict
+        result_to_dict = MessageToDict(result_data)
+
+        self.assertEqual(expected_01_2021, result_to_dict["contraCheque"][0])
+        
+    def test_mpac_02_2021(self):
+        self.maxDiff = None
+        # Json com a saida esperada
+        with open("src/output_test/expected/expected_mpac_02_2021.json", "r") as fp:
+            expected_02_2021 = json.load(fp)
+
+        files = [
+            "src/output_test/sheets/MPAC-contracheques-02-2021.ods",
+            "src/output_test/sheets/MPAC-indenizacoes-02-2021.ods",
+        ]
+
+        dados = data.Data("2021", "02", "MPAC", "src/output_test/sheets")
+        dados = data.load(files, dados)
+        result_data = parse(dados, "mpac/02/2021")
+
+        # Converto o resultado do parser, em dict
+        result_to_dict = MessageToDict(result_data)
+
+        self.assertEqual(expected_02_2021, result_to_dict["contraCheque"][0])
+        
+    def test_mpac_03_2021(self):
+        self.maxDiff = None
+        # Json com a saida esperada
+        with open("src/output_test/expected/expected_mpac_03_2021.json", "r") as fp:
+            expected_03_2021 = json.load(fp)
+
+        files = [
+            "src/output_test/sheets/MPAC-contracheques-03-2021.ods",
+            "src/output_test/sheets/MPAC-indenizacoes-03-2021.ods",
+        ]
+
+        dados = data.Data("2021", "03", "MPAC", "src/output_test/sheets")
+        dados = data.load(files, dados)
+        result_data = parse(dados, "mpac/03/2021")
+
+        # Converto o resultado do parser, em dict
+        result_to_dict = MessageToDict(result_data)
+
+        self.assertEqual(expected_03_2021, result_to_dict["contraCheque"][0])
+        
+    def test_mpac_04_2021(self):
+        self.maxDiff = None
+        # Json com a saida esperada
+        with open("src/output_test/expected/expected_mpac_04_2021.json", "r") as fp:
+            expected_04_2021 = json.load(fp)
+
+        files = [
+            "src/output_test/sheets/MPAC-contracheques-04-2021.ods",
+            "src/output_test/sheets/MPAC-indenizacoes-04-2021.ods",
+        ]
+
+        dados = data.Data("2021", "04", "MPAC", "src/output_test/sheets")
+        dados = data.load(files, dados)
+        result_data = parse(dados, "mpac/04/2021")
+
+        # Converto o resultado do parser, em dict
+        result_to_dict = MessageToDict(result_data)
+
+        self.assertEqual(expected_04_2021, result_to_dict["contraCheque"][0])
+        
+    def test_mpac_05_2021(self):
+        self.maxDiff = None
+        # Json com a saida esperada
+        with open("src/output_test/expected/expected_mpac_05_2021.json", "r") as fp:
+            expected_05_2021 = json.load(fp)
+
+        files = [
+            "src/output_test/sheets/MPAC-contracheques-05-2021.ods",
+            "src/output_test/sheets/MPAC-indenizacoes-05-2021.ods",
+        ]
+
+        dados = data.Data("2021", "05", "MPAC", "src/output_test/sheets")
+        dados = data.load(files, dados)
+        result_data = parse(dados, "mpac/05/2021")
+
+        # Converto o resultado do parser, em dict
+        result_to_dict = MessageToDict(result_data)
+
+        self.assertEqual(expected_05_2021, result_to_dict["contraCheque"][0])
+        
+    def test_mpac_06_2021(self):
+        self.maxDiff = None
+        # Json com a saida esperada
+        with open("src/output_test/expected/expected_mpac_06_2021.json", "r") as fp:
+            expected_06_2021 = json.load(fp)
+
+        files = [
+            "src/output_test/sheets/MPAC-contracheques-06-2021.ods",
+            "src/output_test/sheets/MPAC-indenizacoes-06-2021.ods",
+        ]
+
+        dados = data.Data("2021", "06", "MPAC", "src/output_test/sheets")
+        dados = data.load(files, dados)
+        result_data = parse(dados, "mpac/06/2021")
+
+        # Converto o resultado do parser, em dict
+        result_to_dict = MessageToDict(result_data)
+
+        self.assertEqual(expected_06_2021, result_to_dict["contraCheque"][0])
+        
+    def test_mpac_07_2021(self):
+        self.maxDiff = None
+        # Json com a saida esperada
+        with open("src/output_test/expected/expected_mpac_07_2021.json", "r") as fp:
+            expected_07_2021 = json.load(fp)
+
+        files = [
+            "src/output_test/sheets/MPAC-contracheques-07-2021.ods",
+            "src/output_test/sheets/MPAC-indenizacoes-07-2021.ods",
+        ]
+
+        dados = data.Data("2021", "07", "MPAC", "src/output_test/sheets")
+        dados = data.load(files, dados)
+        result_data = parse(dados, "mpac/07/2021")
+
+        # Converto o resultado do parser, em dict
+        result_to_dict = MessageToDict(result_data)
+
+        self.assertEqual(expected_07_2021, result_to_dict["contraCheque"][0])
+        
+    def test_mpac_01_2022(self):
+        self.maxDiff = None
+        # Json com a saida esperada
+        with open("src/output_test/expected/expected_mpac_01_2022.json", "r") as fp:
+            expected_01_2022 = json.load(fp)
+
+        files = [
+            "src/output_test/sheets/MPAC-contracheques-01-2022.ods",
+            "src/output_test/sheets/MPAC-indenizacoes-01-2022.ods",
+        ]
+
+        dados = data.Data("2022", "01", "MPAC", "src/output_test/sheets")
+        dados = data.load(files, dados)
+        result_data = parse(dados, "mpac/01/2022")
+
+        # Converto o resultado do parser, em dict
+        result_to_dict = MessageToDict(result_data)
+
+        self.assertEqual(expected_01_2022, result_to_dict["contraCheque"][0])
+        
+    def test_mpac_03_2022(self):
+        self.maxDiff = None
+        # Json com a saida esperada
+        with open("src/output_test/expected/expected_mpac_03_2022.json", "r") as fp:
+            expected_03_2022 = json.load(fp)
+
+        files = [
+            "src/output_test/sheets/MPAC-contracheques-03-2022.ods",
+            "src/output_test/sheets/MPAC-indenizacoes-03-2022.ods",
+        ]
+
+        dados = data.Data("2022", "03", "MPAC", "src/output_test/sheets")
+        dados = data.load(files, dados)
+        result_data = parse(dados, "mpac/03/2022")
+
+        # Converto o resultado do parser, em dict
+        result_to_dict = MessageToDict(result_data)
+
+        self.assertEqual(expected_03_2022, result_to_dict["contraCheque"][0])
+        
+    def test_mpac_09_2023(self):
+        self.maxDiff = None
+        # Json com a saida esperada
+        with open("src/output_test/expected/expected_mpac_09_2023.json", "r") as fp:
+            expected_09_2023 = json.load(fp)
+
+        files = [
+            "src/output_test/sheets/MPAC-contracheques-09-2023.ods",
+            "src/output_test/sheets/MPAC-indenizacoes-09-2023.ods",
+        ]
+
+        dados = data.Data("2023", "09", "MPAC", "src/output_test/sheets")
+        dados = data.load(files, dados)
+        result_data = parse(dados, "mpac/09/2023")
+
+        # Converto o resultado do parser, em dict
+        result_to_dict = MessageToDict(result_data)
+
+        self.assertEqual(expected_09_2023, result_to_dict["contraCheque"][0])
+        
+    def test_mpac_12_2023(self):
+        self.maxDiff = None
+        # Json com a saida esperada
+        with open("src/output_test/expected/expected_mpac_12_2023.json", "r") as fp:
+            expected_12_2023 = json.load(fp)
+
+        files = [
+            "src/output_test/sheets/MPAC-contracheques-12-2023.ods",
+            "src/output_test/sheets/MPAC-indenizacoes-12-2023.ods",
+        ]
+
+        dados = data.Data("2023", "12", "MPAC", "src/output_test/sheets")
+        dados = data.load(files, dados)
+        result_data = parse(dados, "mpac/12/2023")
+
+        # Converto o resultado do parser, em dict
+        result_to_dict = MessageToDict(result_data)
+
+        self.assertEqual(expected_12_2023, result_to_dict["contraCheque"][0])

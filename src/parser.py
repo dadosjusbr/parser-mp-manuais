@@ -245,6 +245,50 @@ def update_employees_mppe(data, employees):
     return employees
 
 
+def update_employees_mpac(data, employees):
+    if int(data.year) == 2021:
+        if int(data.month) == 1:
+            header = "mpac-01-2021"
+        elif int(data.month) == 2:
+            header = "mpac-02-2021"
+        elif int(data.month) == 3:
+            header = "mpac-03-2021"
+        elif int(data.month) == 4:
+            header = "mpac-04-2021"
+        elif int(data.month) == 5:
+            header = "mpac-05-2021"
+        elif int(data.month) == 6:
+            header = "mpac-06-2021"    
+        elif  int(data.month) >= 7:
+            header = "mpac-07-2021"
+    elif int(data.year) == 2022 and int(data.month) in [1,2]:
+        header = "mpac-01-2022"
+    elif (int(data.year) == 2022 and int(data.month) >= 3) or (int(data.year) == 2023 and int(data.month) <= 8):
+        header = "mpac-03-2022"
+    elif int(data.year) == 2023 and int(data.month) in [9,10,11]:
+        header = "mpac-09-2023"
+    else:
+        header = "mpac-12-2023"
+
+    for row in data.indenizatorias:
+        if int(data.year) != 2021 or (int(data.year) == 2021 and int(data.month) >= 7):
+            row = [x for x in row if not pd.isna(x)]
+        
+        if len(row)!=0:
+            registration = row[0]
+
+            if type(registration) != str and not pd.isna(registration):
+                registration = str(int(registration))
+
+            if registration in employees.keys():
+                emp = employees[registration]
+                remu = remunerations(row, header)
+                emp.remuneracoes.MergeFrom(remu)
+                employees[registration] = emp
+
+    return employees
+
+
 def update_employees_mpes(data, employees):
     # Os diversos formatos do MPES em 2021 possui suas rubricas em colunas,
     # isto é, precisamos listar suas rubricas e interamos apenas pelos seus valores,
@@ -316,10 +360,12 @@ def update_employees_mprj(data, employees):
 def update_employees_mpsp(data, employees):
     header = "mpsp"
 
-    if int(data.year) == 2022:
-        if int(data.month) == 2:
+    if int(data.year) in [2021, 2022]:
+        if int(data.year) == 2022 and int(data.month) == 2:
             header = "mpsp-02-2022"
-        elif int(data.month) in [3, 4, 5, 6, 7]:
+        elif (int(data.year) == 2022 and int(data.month) in [3, 4, 5, 6, 7]) or (
+            int(data.year) == 2021 and int(data.month) in [6, 7, 8, 9, 12]
+        ):
             header = "mpsp-03-2022"
         elif int(data.month) in [8, 9, 10, 11, 12]:
             header = "mpsp-08-2022"
@@ -382,6 +428,7 @@ def update_employees_mpse(data, employees):
 
     return employees
 
+
 def update_employees_mpto(data, employees):
     if int(data.year) == 2021 and int(data.month) < 8:
         header = "mpto-01-2021"
@@ -410,6 +457,7 @@ def update_employees_mpto(data, employees):
 
     return employees
 
+
 def parse(data, colect_key):
     employees = {}
     payroll = Coleta.FolhaDePagamento()
@@ -431,6 +479,8 @@ def parse(data, colect_key):
         update_employees_mpsp(data, employees)
     elif data.court.casefold() == "mpto":
         update_employees_mpto(data, employees)
+    elif data.court.casefold() == "mpac":
+        update_employees_mpac(data, employees)
     else:
         update_employees(data.indenizatorias, employees, data.court.casefold())
 
