@@ -1,0 +1,148 @@
+{
+    "idContraCheque": "mpac/04/2021/1",
+    "chaveColeta": "mpac/04/2021",
+    "nome": "ABELARDO TOWNES DE CASTRO JUNIOR",
+    "matricula": "36461",
+    "funcao": "PROMOTOR DE JUST DE ENTRANCIA FINAL",
+    "localTrabalho": "14 PROMOTORIA DE JUSTICA CRIMINAL",
+    "ativo": true,
+    "remuneracoes": {
+        "remuneracao": [
+            {
+                "categoria": "REMUNERAÇÃO BÁSICA",
+                "item": "Remuneração do Cargo Efetivo",
+                "valor": 33689.11
+            },
+            {
+                "categoria": "REMUNERAÇÃO BÁSICA",
+                "item": "Outras Verbas Remuneratórias, Legais ou Judiciais"
+            },
+            {
+                "categoria": "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA",
+                "item": "Função de Confiança ou Cargo em Comissão"
+            },
+            {
+                "categoria": "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA",
+                "item": "Gratificação Natalina"
+            },
+            {
+                "categoria": "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA",
+                "item": "Férias (1/3 constitucional)"
+            },
+            {
+                "categoria": "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA",
+                "item": "Abono de Permanência"
+            },
+            {
+                "natureza": "D",
+                "categoria": "OBRIGATÓRIOS/LEGAIS",
+                "item": "Contribuição Previdenciária",
+                "valor": -4716.47
+            },
+            {
+                "natureza": "D",
+                "categoria": "OBRIGATÓRIOS/LEGAIS",
+                "item": "Imposto de Renda",
+                "valor": -6941.7
+            },
+            {
+                "natureza": "D",
+                "categoria": "OBRIGATÓRIOS/LEGAIS",
+                "item": "Retenção por Teto Constitucional"
+            },
+            {
+                "natureza": "D",
+                "categoria": "OBRIGATÓRIOS/LEGAIS",
+                "item": "OUTROS",
+                "valor": -17081.39
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "AUXILIO ALIMENTACAO MEMBROS",
+                "valor": 1773.11,
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "AUXILIO ALIMENTACAO SERVIDORES",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "AUXILIO SAUDE SERVIDORES",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "AUXILIO SAUDE PENSAO",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "AUXILIO SAUDE RETROATIVO SERVIDORES",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "AUXILIO SAUDE SERVIDORES APOSENTADOS",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "DIFERENCA INDENIZACAO FERIAS",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "PAE INDENIZADO",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "AUXILIO SAUDE",
+                "valor": 3368.91,
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "GRAT POR ACUMULACAO DE CARGOS E FUNCOES",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "DIF INCOR TRIBUTADA EXERCICIO ANTERIOR",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "GRATIFICACAO DE CAPACITACAO RETROATIVA",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "DIF SUBSTITUICAO EXTRAQUADRO",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "ABONO DE PERMANENCIA RETROATIVO",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "DIF GRAT TITULACAO RETROATIVA",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "PAE TRIBUTADO",
+                "tipoReceita": "O"
+            },
+            {
+                "categoria": "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS",
+                "item": "CC PROPORCIONAL",
+                "tipoReceita": "O"
+            }
+        ]
+    }
+}
