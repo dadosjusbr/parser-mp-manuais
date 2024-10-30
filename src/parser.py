@@ -264,6 +264,8 @@ def get_mpac_header(year, month):
             return "mpac-07-2021"
     elif year == 2022 and month in [1,2]:
         return "mpac-01-2022"
+    elif year == 2022 and month == 11:
+        return "mpac-11-2022"
     elif (year == 2022 and month >= 3) or (year == 2023 and month <= 8):
         return "mpac-03-2022"
     elif year == 2023 and month in [9,10,11]:

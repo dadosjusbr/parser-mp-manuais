@@ -35,6 +35,7 @@ INDENIZACOES_MPAC_06_2021 = "indenizacoes-mpac-06-2021"
 INDENIZACOES_MPAC_07_2021 = "indenizacoes-mpac-07-2021"
 INDENIZACOES_MPAC_01_2022 = "indenizacoes-mpac-01-2022"
 INDENIZACOES_MPAC_03_2022 = "indenizacoes-mpac-03-2022"
+INDENIZACOES_MPAC_11_2022 = "indenizacoes-mpac-11-2022"
 INDENIZACOES_MPAC_09_2023 = "indenizacoes-mpac-09-2023"
 INDENIZACOES_MPAC_12_2023 = "indenizacoes-mpac-12-2023"
 CONTRACHEQUE_MPAL = "contracheque-mpal"
@@ -721,6 +722,26 @@ HEADERS = {
         "PAE Tributado": 24,
         "CCMP Retroativo": 25,
         "Gratificação G.U.A": 26,
+    },
+    INDENIZACOES_MPAC_11_2022: {
+        "Auxílio Alimentação Membros": 4,
+        "Auxílio Alimentação Servidores": 5,
+        "Auxílio Saúde Servidores": 6,
+        "Auxílio Saúde Pensão": 7,
+        "Auxílio Saúde Servidores Aposentados": 8,
+        "Auxílio Saúde": 9,
+        "Abono Pecuniário Exercício Anterior": 10,
+        "Abono Pecuniário": 11,
+        "Indenização de Férias": 12,
+        "Indenização de Férias Exercício Anterior": 13,
+        "Licença Especial Indenizada": 14,
+        "Terço de Férias Indenizado": 15,
+        "PAE Indenizado": 16,
+        "Grat por Acumulação de Cargos e Funcões": 17,
+        "Dif Incor Tributada Exercício Anterior": 18,
+        "Gratificação de Capacitação Retroativa": 19,
+        "Dif Substituição Extraquadro": 20,
+        "Gratificação G.U.A": 21,
     },
     INDENIZACOES_MPAC_09_2023: {
         "Auxílio Alimentação Membros": 4,
