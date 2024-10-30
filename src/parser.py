@@ -217,18 +217,20 @@ def update_employees(file_indenizacoes, employees, court):
                 employees[registration] = emp
     return employees
 
-
-def update_employees_mppe(data, employees):
-    if int(data.year) == 2021 and int(data.month) < 12:
-        header = "mppe-01-2021"
-    elif (int(data.year) == 2021 and int(data.month) == 12) or (
-        int(data.year) == 2022 and int(data.month) < 12
+def get_mppe_header(year, month):
+    if year == 2021 and month < 12:
+        return "mppe-01-2021"
+    elif (year == 2021 and month == 12) or (
+        year == 2022 and month < 12
     ):
-        header = "mppe-12-2021"
-    elif int(data.year) == 2022 and int(data.month) == 12:
-        header = "mppe-12-2022"
+        return "mppe-12-2021"
+    elif year == 2022 and month == 12:
+        return "mppe-12-2022"
     else:
-        header = "mppe-01-2023"
+        return "mppe-01-2023"
+        
+def update_employees_mppe(data, employees):
+    header = get_mppe_header(int(data.year), int(data.month))
 
     for row in data.indenizatorias:
         registration = row[0]
@@ -244,31 +246,33 @@ def update_employees_mppe(data, employees):
 
     return employees
 
+def get_mpac_header(year, month):
+    if year == 2021:
+        if month == 1:
+            return "mpac-01-2021"
+        elif month == 2:
+            return "mpac-02-2021"
+        elif month == 3:
+            return "mpac-03-2021"
+        elif month == 4:
+            return "mpac-04-2021"
+        elif month == 5:
+            return "mpac-05-2021"
+        elif month == 6:
+            return "mpac-06-2021"    
+        elif  month >= 7:
+            return "mpac-07-2021"
+    elif year == 2022 and month in [1,2]:
+        return "mpac-01-2022"
+    elif (year == 2022 and month >= 3) or (year == 2023 and month <= 8):
+        return "mpac-03-2022"
+    elif year == 2023 and month in [9,10,11]:
+        return "mpac-09-2023"
+    else:
+        return "mpac-12-2023"
 
 def update_employees_mpac(data, employees):
-    if int(data.year) == 2021:
-        if int(data.month) == 1:
-            header = "mpac-01-2021"
-        elif int(data.month) == 2:
-            header = "mpac-02-2021"
-        elif int(data.month) == 3:
-            header = "mpac-03-2021"
-        elif int(data.month) == 4:
-            header = "mpac-04-2021"
-        elif int(data.month) == 5:
-            header = "mpac-05-2021"
-        elif int(data.month) == 6:
-            header = "mpac-06-2021"    
-        elif  int(data.month) >= 7:
-            header = "mpac-07-2021"
-    elif int(data.year) == 2022 and int(data.month) in [1,2]:
-        header = "mpac-01-2022"
-    elif (int(data.year) == 2022 and int(data.month) >= 3) or (int(data.year) == 2023 and int(data.month) <= 8):
-        header = "mpac-03-2022"
-    elif int(data.year) == 2023 and int(data.month) in [9,10,11]:
-        header = "mpac-09-2023"
-    else:
-        header = "mpac-12-2023"
+    header = get_mpac_header(int(data.year), int(data.month))
 
     for row in data.indenizatorias:
         if int(data.year) != 2021 or (int(data.year) == 2021 and int(data.month) >= 7):
@@ -288,6 +292,18 @@ def update_employees_mpac(data, employees):
 
     return employees
 
+def get_mpes_header(year, month):
+    if month in [1, 3]:
+        return "mpes-01-2021"
+    elif month in [2, 7]:
+        return "mpes-02-2021"
+    elif month in [8]:
+        return "mpes-08-2021"
+    elif month in [12]:
+        return "mpes-12-2021"
+    else:
+        # month in [4,5,6,9,10,11]
+        return "mpes-04-2021"
 
 def update_employees_mpes(data, employees):
     # Os diversos formatos do MPES em 2021 possui suas rubricas em colunas,
@@ -295,17 +311,7 @@ def update_employees_mpes(data, employees):
     # assim como os demais órgãos.
     # A partir de 2022, temos 2 colunas (ou 4), uma contendo a descrição/rubrica e outra contendo o valor.
     if int(data.year) == 2021:
-        if int(data.month) in [1, 3]:
-            header = "mpes-01-2021"
-        elif int(data.month) in [2, 7]:
-            header = "mpes-02-2021"
-        elif int(data.month) in [8]:
-            header = "mpes-08-2021"
-        elif int(data.month) in [12]:
-            header = "mpes-12-2021"
-        else:
-            # int(data.month) in [4,5,6,9,10,11]
-            header = "mpes-04-2021"
+        header = get_mpes_header(2021, int(data.month))
 
         for row in data.indenizatorias:
             registration = row[0]
@@ -327,20 +333,23 @@ def update_employees_mpes(data, employees):
             employees[employee] = emp
     return employees
 
+def get_mprj_header(year, month):
+    header = "mprj"
+
+    if year == 2022 and month in [10]:
+        header = "mprj-10-2022"
+    elif year == 2023:
+        if month in [5, 6, 9, 10]:
+            header = "mprj-05-2023"
+        elif month in [7, 8]:
+            header = "mprj-07-2023"
+    
+    return header
 
 def update_employees_mprj(data, employees):
     # Mudança de formato de planilha do MPES em alguns meses
     # em 2022 e 2023
-    header = "mprj"
-
-    if int(data.year) == 2022 and int(data.month) in [10]:
-        header = "mprj-10-2022"
-    elif int(data.year) == 2023:
-        if int(data.month) in [5, 6, 9, 10]:
-            header = "mprj-05-2023"
-        elif int(data.month) in [7, 8]:
-            header = "mprj-07-2023"
-        # 10
+    header = get_mprj_header(int(data.year), int(data.month))
 
     for row in data.indenizatorias:
         registration = row[0]
@@ -356,26 +365,30 @@ def update_employees_mprj(data, employees):
 
     return employees
 
-
-def update_employees_mpsp(data, employees):
+def get_mpsp_header(year, month):
     header = "mpsp"
 
-    if int(data.year) in [2021, 2022]:
-        if int(data.year) == 2022 and int(data.month) == 2:
+    if year in [2021, 2022]:
+        if year == 2022 and month == 2:
             header = "mpsp-02-2022"
-        elif (int(data.year) == 2022 and int(data.month) in [3, 4, 5, 6, 7]) or (
-            int(data.year) == 2021 and int(data.month) in [6, 7, 8, 9, 12]
+        elif (year == 2022 and month in [3, 4, 5, 6, 7]) or (
+            year == 2021 and month in [6, 7, 8, 9, 12]
         ):
             header = "mpsp-03-2022"
-        elif int(data.month) in [8, 9, 10, 11, 12]:
+        elif month in [8, 9, 10, 11, 12]:
             header = "mpsp-08-2022"
-    elif int(data.year) == 2023:
-        if int(data.month) == 1:
+    elif year == 2023:
+        if month == 1:
             header = "mpsp-01-2023"
-        elif int(data.month) in [2, 3, 4, 5, 6]:
+        elif month in [2, 3, 4, 5, 6]:
             header = "mpsp-08-2022"
-        elif int(data.month) in [7, 8, 9, 10, 11, 12]:
+        elif month in [7, 8, 9, 10, 11, 12]:
             header = "mpsp-03-2022"
+    
+    return header
+
+def update_employees_mpsp(data, employees):
+    header = get_mpsp_header(int(data.year), int(data.month))
 
     for row in data.indenizatorias:
         registration = row[0]
@@ -391,27 +404,29 @@ def update_employees_mpsp(data, employees):
 
     return employees
 
+def get_mpse_header(year, month):
+    if year == 2021 and month == 1:
+        return "mpse-01-2021"
+    elif (year == 2021 and month > 1) or (
+        year == 2022 and month < 3
+    ):
+        return "mpse-02-2021"
+    elif year == 2022 and month in [3, 4, 5, 6, 7]:
+        return "mpse-03-2022"
+    elif year == 2022 and month in [8, 9]:
+        return "mpse-08-2022"
+    elif (year == 2022 and month > 9) or (
+        year == 2023 and month < 8
+    ):
+        return "mpse-10-2022"
+    elif year == 2023 and month in [8, 9]:
+        return "mpse-08-2023"
+    else:
+        return "mpse-10-2023"
 
 def update_employees_mpse(data, employees):
     # MPSE mudou sua estrutura (rubricas) diversas vezes entre 2021 e 2023
-    if int(data.year) == 2021 and int(data.month) == 1:
-        header = "mpse-01-2021"
-    elif (int(data.year) == 2021 and int(data.month) > 1) or (
-        int(data.year) == 2022 and int(data.month) < 3
-    ):
-        header = "mpse-02-2021"
-    elif int(data.year) == 2022 and int(data.month) in [3, 4, 5, 6, 7]:
-        header = "mpse-03-2022"
-    elif int(data.year) == 2022 and int(data.month) in [8, 9]:
-        header = "mpse-08-2022"
-    elif (int(data.year) == 2022 and int(data.month) > 9) or (
-        int(data.year) == 2023 and int(data.month) < 8
-    ):
-        header = "mpse-10-2022"
-    elif int(data.year) == 2023 and int(data.month) in [8, 9]:
-        header = "mpse-08-2023"
-    else:
-        header = "mpse-10-2023"
+    header = get_mpse_header(int(data.year), int(data.month))
 
     for row in data.indenizatorias:
         row = [x for x in row if not pd.isna(x)]
@@ -428,18 +443,20 @@ def update_employees_mpse(data, employees):
 
     return employees
 
-
-def update_employees_mpto(data, employees):
-    if int(data.year) == 2021 and int(data.month) < 8:
-        header = "mpto-01-2021"
-    elif (int(data.year) == 2021 and int(data.month) >= 8) or (
-        int(data.year) == 2022 and int(data.month) < 3
+def get_mpto_header(year, month):
+    if year == 2021 and month < 8:
+        return "mpto-01-2021"
+    elif (year == 2021 and month >= 8) or (
+        year == 2022 and month < 3
     ):
-        header = "mpto-08-2021"
-    elif int(data.year) == 2022 and int(data.month) in [3, 4, 5, 6]:
-        header = "mpto-03-2022"
+        return "mpto-08-2021"
+    elif year == 2022 and month in [3, 4, 5, 6]:
+        return "mpto-03-2022"
     else:
-        header = "mpto-07-2022"
+        return "mpto-07-2022"
+        
+def update_employees_mpto(data, employees):
+    header = get_mpto_header(int(data.year), int(data.month))
 
     for row in data.indenizatorias:
         row = [x for x in row if not pd.isna(x)]

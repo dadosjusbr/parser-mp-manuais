@@ -13,8 +13,7 @@ def format_value(element):
             element = element.replace(".", "").replace(",", ".")
         elif "," in element:
             element = element.replace(",", ".")
-        elif re.match(r"^\s*-\s*$", element):
-            element = 0.0
+        element = re.sub(r"^\s*-\s*$", "0.0", element)
     if "R$" in str(element):
         element = element.replace("R$", "")
     if " " in str(element):
