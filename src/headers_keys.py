@@ -38,6 +38,7 @@ INDENIZACOES_MPAC_03_2022 = "indenizacoes-mpac-03-2022"
 INDENIZACOES_MPAC_11_2022 = "indenizacoes-mpac-11-2022"
 INDENIZACOES_MPAC_09_2023 = "indenizacoes-mpac-09-2023"
 INDENIZACOES_MPAC_12_2023 = "indenizacoes-mpac-12-2023"
+INDENIZACOES_MPAC_07_2023 = "indenizacoes-mpac-07-2023"
 CONTRACHEQUE_MPAL = "contracheque-mpal"
 INDENIZACOES_MPAL = "indenizacoes-mpal"
 CONTRACHEQUE_MPBA = "contracheque-mpba"
@@ -795,6 +796,32 @@ HEADERS = {
         "Gratificação G.U.A": 26,
         "Auxílio Alimentaçao Retroativo": 27,
         "Pecunia de Licenca Acervo em Bancos Horas": 28,
+    },
+    INDENIZACOES_MPAC_07_2023: {
+        "Auxílio Alimentação Membros": 4,
+        "Auxílio Alimentação Servidores": 5,
+        "Auxílio Saúde Servidores": 6,
+        "Auxílio Saúde Pensão": 8,
+        "Auxílio Saúde Servidores Aposentados": 9,
+        "Auxílio Saúde": 10,
+        "Indenizações Para Inativo Civil": 11,
+        "Abono Pecuniário Exercício Anterior": 12,
+        "Abono Pecuniário": 13,
+        "Indenização de Férias": 14,
+        "Indenização de Férias Exercício Anterior": 15,
+        "Licença Especial Indenizada": 16,
+        "Terço de Férias Indenizado": 17,
+        "": 18,
+        "PAE Indenizado": 19,
+        "Grat por Acumulação de Cargos e Funcões": 20,
+        "Dif Incor Tributada Exercício Anterior": 21,
+        "Gratificação de Capacitação Retroativa": 22,
+        "Dif Substituição Extraquadro": 23,
+        "Diferença Salarial Retroativo": 24,
+        "Abono de Permanência Retroativo": 25,
+        "PAE Tributado": 26,
+        "CCMP Retroativo": 27,
+        "Gratificação G.U.A": 28,
     },
     # Algumas rubricas do MPAL aparece em ambas planilhas
     CONTRACHEQUE_MPAL: {
