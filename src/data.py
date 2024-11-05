@@ -42,7 +42,12 @@ def _readODS(file):
 
 def _readCSV(file):
     try:
-        dt = pd.read_csv(file, encoding="iso-8859-1", skiprows=1, delimiter=";")
+        if "mpal" in file.casefold():
+            skiprows = 1
+        else:
+            skiprows = 0
+
+        dt = pd.read_csv(file, encoding="iso-8859-1", skiprows=skiprows, delimiter=";")
         data = dt.to_numpy()
     except Exception as excep:
         print(f"Erro lendo as planilhas CSV ({file}): {excep}", file=sys.stderr)

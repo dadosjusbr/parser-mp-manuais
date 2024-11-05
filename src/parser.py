@@ -85,6 +85,12 @@ def parse_employees(file, colect_key, court):
                     name = new_row[0]
                     funcao = new_row[1]
                     local_trabalho = new_row[2]
+                # MPRS não possui nome, apenas matrícula
+                elif court == "mprs":
+                    registration = str(new_row[4])
+                    name = ""
+                    funcao = new_row[5]
+                    local_trabalho = new_row[6]
                 else:
                     name = new_row[1]
                     funcao = new_row[2]
@@ -102,7 +108,11 @@ def parse_employees(file, colect_key, court):
 
                 member.remuneracoes.CopyFrom(create_remuneration(new_row, court))
 
-                employees[str(new_row[0])] = member
+                if court == "mprs":
+                    employees[registration] = member
+                else:
+                    employees[str(new_row[0])] = member
+
                 counter += 1
 
     return employees
