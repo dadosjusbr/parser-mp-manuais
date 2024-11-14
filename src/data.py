@@ -42,7 +42,16 @@ def _readODS(file):
 
 def _readCSV(file):
     try:
-        dt = pd.read_csv(file, encoding="iso-8859-1", skiprows=1, delimiter=";")
+        # é necessário pular 1 linha no MPAL, pois o pandas entende a primeira linha 
+        # (que contém apenas a data) como cabeçalho, deixando o dataframe quebrado, excluindo demais colunas 
+        # e perdendo informações relevantes.
+        # não é necessário fazer isso com o MPRS, pois a primeira linha é, de fato, o cabeçalho.
+        if "mpal" in file.casefold():
+            skiprows = 1
+        else:
+            skiprows = 0
+
+        dt = pd.read_csv(file, encoding="iso-8859-1", skiprows=skiprows, delimiter=";")
         data = dt.to_numpy()
     except Exception as excep:
         print(f"Erro lendo as planilhas CSV ({file}): {excep}", file=sys.stderr)

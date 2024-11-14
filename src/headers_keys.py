@@ -59,6 +59,8 @@ INDENIZACOES_MPSE_08_2023 = "indenizacoes-mpse-08-2023"
 INDENIZACOES_MPSE_10_2023 = "indenizacoes-mpse-10-2023"
 CONTRACHEQUE_MPRR = "contracheque-mprr"
 INDENIZACOES_MPRR = "indenizacoes-mprr"
+CONTRACHEQUE_MPRS = "contracheque-mprs"
+INDENIZACOES_MPRS = "indenizacoes-mprs"
 
 HEADERS = {
     CONTRACHEQUE_MPPA: {
@@ -1298,5 +1300,39 @@ HEADERS = {
         "Gratificação por Substituição Cumulativa": 17,
         "Substituição": 18,
         "Gratificação por Produtividade": 19,
+    },
+    CONTRACHEQUE_MPRS: {
+        "REMUNERAÇÃO BÁSICA": {
+            "remuneracao": 7,
+            "outras_verbas": 8,
+        },
+        "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA": {
+            "fg_cc": 9,
+            "gratificacao_natalina": 10,
+            "ferias": 11,
+            "abono_permanencia": 12,
+        },
+        "OBRIGATÓRIOS/LEGAIS": {
+            "contribuicao_previdenciaria": 16,
+            "imposto_renda": 17,
+            "retencao_por_teto": 18,
+        },
+    },
+    INDENIZACOES_MPRS: {
+        "Abono Família": 3,
+        "Vale Alimentação": 4,
+        "Auxílio Transporte": 5,
+        "Auxílio Creche": 6,
+        "Auxílio Saúde": 7,
+        "Conversões em Pecúnia": 8,
+        "Comissão Especial": 9,
+        "Gratificação Setor": 10,
+        "Adicional Insal / Periculosidae": 11,
+        "Difícil Provimento": 12,
+        "Honorário Concurso": 13,
+        "Substituição": 14,
+        "Diretor Promotoria": 15,
+        "Hora Extra": 16,
+        "Acúmulo Funções/Acervo": 17,
     },
 }
