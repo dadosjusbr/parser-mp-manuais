@@ -42,6 +42,10 @@ def _readODS(file):
 
 def _readCSV(file):
     try:
+        # é necessário pular 1 linha no MPAL, pois o pandas entende a primeira linha 
+        # (que contém apenas a data) como cabeçalho, deixando o dataframe quebrado, excluindo demais colunas 
+        # e perdendo informações relevantes.
+        # não é necessário fazer isso com o MPRS, pois a primeira linha é, de fato, o cabeçalho.
         if "mpal" in file.casefold():
             skiprows = 1
         else:
