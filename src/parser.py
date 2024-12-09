@@ -122,13 +122,16 @@ def create_remuneration(row, court):
     remuneration_array = Coleta.Remuneracoes()
     headers_contracheque = f"contracheque-{court}"
     # REMUNERAÇÃO BÁSICA
-    for key, value in HEADERS[headers_contracheque]["REMUNERAÇÃO BÁSICA"].items():
+    for index, (key, value) in enumerate(HEADERS[headers_contracheque]["REMUNERAÇÃO BÁSICA"].items()):
         remuneration = Coleta.Remuneracao()
         remuneration.natureza = Coleta.Remuneracao.Natureza.Value("R")
         remuneration.categoria = "REMUNERAÇÃO BÁSICA"
         remuneration.item = key
         remuneration.valor = float(number.format_value(row[value]))
-        remuneration.tipo_receita = Coleta.Remuneracao.TipoReceita.Value("B")
+        if index == 0:
+            remuneration.tipo_receita = Coleta.Remuneracao.TipoReceita.Value("B")
+        else:
+            remuneration.tipo_receita = Coleta.Remuneracao.TipoReceita.Value("O")
         remuneration_array.remuneracao.append(remuneration)
     # REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA
     for key, value in HEADERS[headers_contracheque][
@@ -139,7 +142,7 @@ def create_remuneration(row, court):
         remuneration.categoria = "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA"
         remuneration.item = key
         remuneration.valor = float(number.format_value(row[value]))
-        remuneration.tipo_receita = Coleta.Remuneracao.TipoReceita.Value("B")
+        remuneration.tipo_receita = Coleta.Remuneracao.TipoReceita.Value("O")
         remuneration_array.remuneracao.append(remuneration)
     # OBRIGATÓRIOS/LEGAIS
     for key, value in HEADERS[headers_contracheque]["OBRIGATÓRIOS/LEGAIS"].items():
