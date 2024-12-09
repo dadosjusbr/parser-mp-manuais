@@ -16,24 +16,29 @@
             {
                 "categoria": "REMUNERAÇÃO BÁSICA",
                 "item": "Outras verbas remuneratórias, legais ou judiciais",
-                "valor": 1838.59
+                "valor": 1838.59,
+                "tipoReceita": "O"
             },
             {
                 "categoria": "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA",
-                "item": "Função de confiança ou cargo em comissão"
+                "item": "Função de confiança ou cargo em comissão",
+                "tipoReceita": "O"
             },
             {
                 "categoria": "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA",
-                "item": "Gratificação natalina"
+                "item": "Gratificação natalina",
+                "tipoReceita": "O"
             },
             {
                 "categoria": "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA",
-                "item": "Férias (1/3 constitucional)"
+                "item": "Férias (1/3 constitucional)",
+                "tipoReceita": "O"
             },
             {
                 "categoria": "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA",
                 "item": "Abono de permanência",
-                "valor": 5222.11
+                "valor": 5222.11,
+                "tipoReceita": "O"
             },
             {
                 "natureza": "D",

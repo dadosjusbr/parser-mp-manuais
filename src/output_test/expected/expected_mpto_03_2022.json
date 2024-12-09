@@ -15,24 +15,29 @@
             },
             {
                 "categoria": "REMUNERAÇÃO BÁSICA",
-                "item": "OUTRAS VERBAS REMUNERATÓRIAS, LEGAIS OU JUDICIAIS"
+                "item": "OUTRAS VERBAS REMUNERATÓRIAS, LEGAIS OU JUDICIAIS",
+                "tipoReceita": "O"
             },
             {
                 "categoria": "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA",
                 "item": "FUNÇÃO DE CONFIANÇA OU CARGO EM COMISSÃO",
-                "valor": 6737.82
+                "valor": 6737.82,
+                "tipoReceita": "O"
             },
             {
                 "categoria": "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA",
-                "item": "GRATIFICAÇÃO NATALINA"
+                "item": "GRATIFICAÇÃO NATALINA",
+                "tipoReceita": "O"
             },
             {
                 "categoria": "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA",
-                "item": "FÉRIAS CONSTITUCIONAIS"
+                "item": "FÉRIAS CONSTITUCIONAIS",
+                "tipoReceita": "O"
             },
             {
                 "categoria": "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA",
-                "item": "ABONO DE PERMANÊNCIA"
+                "item": "ABONO DE PERMANÊNCIA",
+                "tipoReceita": "O"
             },
             {
                 "natureza": "D",
