@@ -376,8 +376,10 @@ def get_mprj_header(year, month):
     elif year == 2023:
         if month in [5, 6, 9, 10]:
             header = "mprj-05-2023"
-        elif month in [7, 8]:
+        elif month in [7, 8, 11]:
             header = "mprj-07-2023"
+        elif month in [12]:
+            header = "mprj-12-2023"
 
     return header
 
@@ -525,8 +527,6 @@ def update_employees_mppa(data, employees):
 
     for row in data.indenizatorias:
         registration = row[0]
-        if type(registration) != str and not pd.isna(registration):
-            registration = str(int(registration))
 
         if registration in employees.keys():
             emp = employees[registration]
