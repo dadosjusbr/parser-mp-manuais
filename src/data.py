@@ -12,7 +12,14 @@ STATUS_INVALID_FILE = 5
 
 def _readXLS(file):
     try:
-        dt = pd.read_excel(file, engine="xlrd")
+        # A planilha de contracheques do MPPA traz a matrícula como float, 
+        # enquanto a planilha de indenizações traz do tipo string.
+        # Isso é um problema, considerando, principalmente, matrícula terminadas em 0
+        # Definimos que o tipo da coluna é string ainda na leitura
+        if 'mppa' in file.casefold():
+            dt = pd.read_excel(file, engine="xlrd", dtype={'Matrícula': str})
+        else:
+            dt = pd.read_excel(file, engine="xlrd")
         data = dt.to_numpy()
     except Exception as excep:
         print(f"Erro lendo as planilhas XLS ({file}): {excep}", file=sys.stderr)

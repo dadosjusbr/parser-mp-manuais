@@ -5,6 +5,7 @@ INDENIZACOES_MPRJ = "indenizacoes-mprj"
 INDENIZACOES_MPRJ_10_2022 = "indenizacoes-mprj-10-2022"
 INDENIZACOES_MPRJ_05_2023 = "indenizacoes-mprj-05-2023"
 INDENIZACOES_MPRJ_07_2023 = "indenizacoes-mprj-07-2023"
+INDENIZACOES_MPRJ_12_2023 = "indenizacoes-mprj-12-2023"
 CONTRACHEQUE_MPRN = "contracheque-mprn"
 INDENIZACOES_MPRN = "indenizacoes-mprn"
 CONTRACHEQUE_MPTO = "contracheque-mpto"
@@ -176,6 +177,21 @@ HEADERS = {
         "GRATIFICAÇÕES EVENTUAIS": 15,
         "INDENIZAÇÃO DE TRANSPORTE": 16,
         "PARCELAS PAGAS EM ATRASO": 17,
+    },
+    INDENIZACOES_MPRJ_12_2023: {
+        "AUXÍLIO-ALIMENTAÇÃO": 4,
+        "AUXÍLIO-EDUCAÇÃO": 5,
+        "AUXÍLIO-SAÚDE": 6,
+        "CONVERSÃO DE LICENÇA ESPECIAL/PRÊMIO": 7,
+        "INDENIZAÇÃO DE TRANSPORTE": 8,
+        "INDENIZAÇÃO POR LICENÇA NÃO GOZADA": 9,
+        "AUXÍLIO-ALIMENTAÇÃO": 10,
+        "AUXÍLIO-EDUCAÇÃO": 11,
+        "AUXÍLIO-SAÚDE": 12,
+        "DIFERENÇAS DE AUXÍLIOS": 13,
+        "GRATIFICAÇÕES EVENTUAIS": 14,
+        "INDENIZAÇÃO DE TRANSPORTE": 15,
+        "PARCELAS PAGAS EM ATRASO": 16,
     },
     CONTRACHEQUE_MPRN: {
         "REMUNERAÇÃO BÁSICA": {
