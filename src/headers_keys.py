@@ -64,6 +64,8 @@ CONTRACHEQUE_MPRR = "contracheque-mprr"
 INDENIZACOES_MPRR = "indenizacoes-mprr"
 CONTRACHEQUE_MPRS = "contracheque-mprs"
 INDENIZACOES_MPRS = "indenizacoes-mprs"
+CONTRACHEQUE_MPMT = "contracheque-mpmt"
+INDENIZACOES_MPMT = "indenizacoes-mpmt"
 
 HEADERS = {
     CONTRACHEQUE_MPPA: {
@@ -1439,5 +1441,34 @@ HEADERS = {
         "Diretor Promotoria": 15,
         "Hora Extra": 16,
         "Acúmulo Funções/Acervo": 17,
+    },
+    CONTRACHEQUE_MPMT: {
+        "REMUNERAÇÃO BÁSICA": {
+            "Remuneração do Cargo Efetivo (1)":4,
+            "Outras Verbas Remuneratórias, Legais ou Judiciais (2)":5,
+        },
+        "REMUNERAÇÃO EVENTUAL OU TEMPORÁRIA": {
+            "Função de Confiança ou Cargo em Comissão (3)":6,
+            "Gratificação Natalina (4)":7,
+            "Férias(1/3 constitucional) (5)":8,
+            "Abono de Permanência (6)":9,
+        },
+        "OBRIGATÓRIOS/LEGAIS": {
+            "Contribuição Previdenciaria (10)":13,
+            "Imposto de Renda (11)":14,
+            "Retenção por Teto Constitucional (12)":15,
+        },
+    },
+    INDENIZACOES_MPMT: {
+        "Auxílio Alimentação":4,
+        "Auxílio Creche":5,
+        "Auxílio Moradia":6,
+        "Auxílio Transporte":7,
+        "Auxílio Saúde":8,
+        "Gratificação":9,
+        "Outras Remunerações":10,
+        "Abono":11,
+        "Licença":12,
+        "Outras Remunerações 2":13,
     },
 }

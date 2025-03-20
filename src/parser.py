@@ -43,6 +43,7 @@ def parse_employees(file, colect_key, court):
                     "total geral",
                     "nome",
                     "matrã\xadcula",
+                    '\xa0',
                 ]
                 and "remunera" not in registration.casefold()
                 and "competência" not in registration.casefold()
@@ -425,8 +426,9 @@ def update_employees_mpes(data, employees):
         for employee in employees:
             emp = employees[employee]
             remu = get_remunerations_mpes(employee, remuneracoes)
-            emp.remuneracoes.MergeFrom(remu)
-            employees[employee] = emp
+            if remu is not None:
+                emp.remuneracoes.MergeFrom(remu)
+                employees[employee] = emp
     return employees
 
 
