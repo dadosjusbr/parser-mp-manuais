@@ -59,6 +59,9 @@ def _readCSV(file):
             skiprows = 0
 
         # Alguns órgãos possuem delimitador e encoding específico
+        # Isto é, o separador de colunas e o tipo de codificação
+        # Isso permite que as planilhas sejam lidas corretamente, interpretando as colunas
+        # e os caracteres de forma adequada.
         if "mpto" in file.casefold() or "mprr" in file.casefold() or "mprn" in file.casefold() or "mpes" in file.casefold():
             delimiter=","
             encoding="utf-8"
@@ -107,6 +110,8 @@ def _convert_file(file):
     return f"{file}"
 
 
+# Existe uma função para cada tipo de arquivo
+# Essa função identifica a extensão do arquivo e chama a função apropriada
 def load(file_names, data):
     """Carrega os arquivos passados como parâmetros.
      :param file_names: slice contendo os arquivos baixados pelo coletor.

@@ -14,6 +14,7 @@ def parse_employees(file, colect_key, court):
     employees = {}
     counter = 1
     
+    # pegando o ano
     year = int(colect_key.split("/")[-1])
 
     for row in file:
@@ -31,6 +32,8 @@ def parse_employees(file, colect_key, court):
             ) or (court == "mpse" and "total" in registration.casefold()):
                 break
             
+            # muitos órgãos possuem o mês no cabeçalho, adicionamos uma regex para filtrar e não pegar
+            # essas linhas como um membro
             meses = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"]
             padrao_meses = r"\b(" + "|".join(meses) + r")\b"
             
@@ -107,6 +110,8 @@ def parse_employees(file, colect_key, court):
                     name = ""
                     funcao = new_row[5]
                     local_trabalho = new_row[6]
+                # A partir de 2024, a planilha do MPTO possui membros sem cargo/lotação
+                # checamos e pegamos as colunas corretas
                 elif court == "mpto" and year >= 2024:
                     name = row[1]
                     if pd.isna(row[2]):
@@ -203,6 +208,10 @@ def remunerations_mpes(year, file_indenizatorias):
     dict_remuneracoes = {}
     
     # Há uma mudança no formato das planilhas de 2024
+    # O formato é parecido, mas a posição das colunas muda
+    # index_key -> índice da coluna que contém as rubricas
+    # index_value -> índice da coluna que contém os valores
+    # index_mat -> índice da coluna que contém a matrícula
     if int(year) >= 2024:
         index_key = 6
         index_value = 7
@@ -251,6 +260,11 @@ def remunerations_mppa_mprj_mpac(row, header):
         remuneration_array.remuneracao.append(remuneration)
     return remuneration_array
 
+# O MPTO mudou o formato de sua planilha de indenizações
+# a partir de 2024, as rubricas são listadas em uma única coluna como um array
+# e os valores em outra coluna como um array
+# Precisamos iterar sobre as duas colunas e criar um dicionário com as rubricas e valores
+# Lembrando que elas ainda são passadas como string, então precisamos fazer o parse
 def remunerations_mpto(row):
     lista_rubricas = row[4].strip("[]").split(", ")
     lista_valores = row[5].strip("[]").split(", ")
