@@ -7,11 +7,15 @@ import pandas as pd
 from coleta import coleta_pb2 as Coleta
 
 from headers_keys import *
+import re
 
 
 def parse_employees(file, colect_key, court):
     employees = {}
     counter = 1
+    
+    # pegando o ano
+    year = int(colect_key.split("/")[-1])
 
     for row in file:
         # Isso é necessário pois alguns órgãos não são estritamente tabulares
@@ -24,9 +28,15 @@ def parse_employees(file, colect_key, court):
             if (
                 "fonte da informação" in registration.casefold()
                 or "total geral" in registration.casefold()
-            ):
+                or "diretoria" in registration.casefold()
+            ) or (court == "mpse" and "total" in registration.casefold()):
                 break
-
+            
+            # muitos órgãos possuem o mês no cabeçalho, adicionamos uma regex para filtrar e não pegar
+            # essas linhas como um membro
+            meses = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"]
+            padrao_meses = r"\b(" + "|".join(meses) + r")\b"
+            
             # Restrições referente aos cabeçalhos das planilhas
             if (
                 registration.casefold()
@@ -36,6 +46,7 @@ def parse_employees(file, colect_key, court):
                     "total geral",
                     "nome",
                     "matrã\xadcula",
+                    '\xa0',
                 ]
                 and "remunera" not in registration.casefold()
                 and "competência" not in registration.casefold()
@@ -43,6 +54,7 @@ def parse_employees(file, colect_key, court):
                 and "grupo" not in registration.casefold()
                 and "rendimento" not in registration.casefold()
                 and "mês" not in registration.casefold()
+                and not bool(re.search(padrao_meses, registration, re.IGNORECASE))
             ):
                 # MPPI não informa cargo e lotação para todos os membros,
                 # podendo colocar 2 campos nulos ou substituir algum por " ".
@@ -51,6 +63,13 @@ def parse_employees(file, colect_key, court):
                     new_row = ["" if item == " " else item for item in new_row]
                     while len(new_row) != 18:
                         new_row.insert(2, "")
+                
+                # Pulando a coluna "data"
+                # A partir de 2024, a planilha recebe esta coluna, sendo a única diferença
+                # Assim, não é necessário mapear novamente as rubricas, pois a planilha permanece igual
+                if court == "mpes" and year >= 2024:
+                    new_row = new_row[1:]
+                    registration = str(new_row[0])
 
                 # Os dados do MPSE inclui também dados de servidores e membros inativos,
                 # então filtramos para pegar apenas os dados de membros ativos
@@ -91,6 +110,19 @@ def parse_employees(file, colect_key, court):
                     name = ""
                     funcao = new_row[5]
                     local_trabalho = new_row[6]
+                # A partir de 2024, a planilha do MPTO possui membros sem cargo/lotação
+                # checamos e pegamos as colunas corretas
+                elif court == "mpto" and year >= 2024:
+                    name = row[1]
+                    if pd.isna(row[2]):
+                        funcao = ""
+                    else:
+                        funcao = row[2]
+
+                    if pd.isna(row[3]):
+                        local_trabalho = ""
+                    else:
+                        local_trabalho = row[3]
                 else:
                     name = new_row[1]
                     funcao = new_row[2]
@@ -172,21 +204,35 @@ def remunerations(row, court):
         remuneration_array.remuneracao.append(remuneration)
     return remuneration_array
 
-
-def remunerations_mpes(file_indenizatorias):
+def remunerations_mpes(year, file_indenizatorias):
     dict_remuneracoes = {}
+    
+    # Há uma mudança no formato das planilhas de 2024
+    # O formato é parecido, mas a posição das colunas muda
+    # index_key -> índice da coluna que contém as rubricas
+    # index_value -> índice da coluna que contém os valores
+    # index_mat -> índice da coluna que contém a matrícula
+    if int(year) >= 2024:
+        index_key = 6
+        index_value = 7
+        index_mat = 1
+    else:
+        index_key = 4
+        index_value = 5
+        index_mat = 0
+
     for row in file_indenizatorias:
-        if not pd.isna(row[0]):
-            mat = str(row[0])
+        if not pd.isna(row[index_mat]):
+            mat = str(row[index_mat])
             remuneracoes = dict_remuneracoes.get(mat, Coleta.Remuneracoes())
             rem = Coleta.Remuneracao()
             rem.natureza = Coleta.Remuneracao.Natureza.Value("R")
             rem.categoria = "VERBAS INDENIZATÓRIAS"
-            rem.item = str(row[4])
-            rem.valor = float(number.format_value(row[5]))
+            rem.item = str(row[index_key])
+            rem.valor = float(number.format_value(row[index_value]))
             rem.tipo_receita = Coleta.Remuneracao.TipoReceita.Value("O")
             remuneracoes.remuneracao.append(rem)
-            if not pd.isna(row[6]):
+            if not pd.isna(row[6]) and int(year) < 2024:
                 rem = Coleta.Remuneracao()
                 rem.natureza = Coleta.Remuneracao.Natureza.Value("R")
                 rem.categoria = "OUTRAS REMUNERAÇÕES TEMPORÁRIAS"
@@ -197,8 +243,9 @@ def remunerations_mpes(file_indenizatorias):
             dict_remuneracoes[mat] = remuneracoes
     return dict_remuneracoes
 
-
-def remunerations_mppa(row, header):
+# Estes órgãos mudam o formato das suas planilhas com frequência
+# Esta função recebe um dicionário das colunas (header) que é feito a partir de uma função específica para cada
+def remunerations_mppa_mprj_mpac(row, header):
     remuneration_array = Coleta.Remuneracoes()
     # VERBAS INDENIZATÓRIAS
     for key, value in header.items():
@@ -213,6 +260,30 @@ def remunerations_mppa(row, header):
         remuneration_array.remuneracao.append(remuneration)
     return remuneration_array
 
+# O MPTO mudou o formato de sua planilha de indenizações
+# a partir de 2024, as rubricas são listadas em uma única coluna como um array
+# e os valores em outra coluna como um array
+# Precisamos iterar sobre as duas colunas e criar um dicionário com as rubricas e valores
+# Lembrando que elas ainda são passadas como string, então precisamos fazer o parse
+def remunerations_mpto(row):
+    lista_rubricas = row[4].strip("[]").split(", ")
+    lista_valores = row[5].strip("[]").split(", ")
+    if row[6] != "[]":
+        lista_rubricas.extend(row[6].strip("[]").split(", "))
+        lista_valores.extend(row[7].strip("[]").split(", "))
+
+    remuneration_array = Coleta.Remuneracoes()
+    for index, r in enumerate(lista_rubricas):
+        remuneration = Coleta.Remuneracao()
+        remuneration.natureza = Coleta.Remuneracao.Natureza.Value("R")
+        remuneration.categoria = (
+            "VERBAS INDENIZATÓRIAS E OUTRAS REMUNERAÇÕES TEMPORÁRIAS"
+        )
+        remuneration.item = r
+        remuneration.valor = float(number.format_value(lista_valores[index]))
+        remuneration.tipo_receita = Coleta.Remuneracao.TipoReceita.Value("O")
+        remuneration_array.remuneracao.append(remuneration)
+    return remuneration_array
 
 def get_remunerations_mpes(employee, remuneracoes):
     if employee in remuneracoes.keys():
@@ -307,25 +378,28 @@ def get_mpac_header(year, month):
 
 
 def update_employees_mpac(data, employees):
-    header = get_mpac_header(int(data.year), int(data.month))
+    if int(data.year) < 2024:
+        header = get_mpac_header(int(data.year), int(data.month))
 
-    for row in data.indenizatorias:
-        if int(data.year) != 2021 or (int(data.year) == 2021 and int(data.month) >= 7):
-            row = [x for x in row if not pd.isna(x)]
+        for row in data.indenizatorias:
+            if int(data.year) != 2021 or (int(data.year) == 2021 and int(data.month) >= 7):
+                row = [x for x in row if not pd.isna(x)]
 
-        if len(row) != 0:
-            registration = row[0]
+            if len(row) != 0:
+                registration = row[0]
 
-            if type(registration) != str and not pd.isna(registration):
-                registration = str(int(registration))
+                if type(registration) != str and not pd.isna(registration):
+                    registration = str(int(registration))
 
-            if registration in employees.keys():
-                emp = employees[registration]
-                remu = remunerations(row, header)
-                emp.remuneracoes.MergeFrom(remu)
-                employees[registration] = emp
+                if registration in employees.keys():
+                    emp = employees[registration]
+                    remu = remunerations(row, header)
+                    emp.remuneracoes.MergeFrom(remu)
+                    employees[registration] = emp
 
-    return employees
+        return employees
+    else:
+        update_employees_mpac_2024(data, employees)
 
 
 def get_mpes_header(year, month):
@@ -362,12 +436,13 @@ def update_employees_mpes(data, employees):
                 emp.remuneracoes.MergeFrom(remu)
                 employees[registration] = emp
     else:
-        remuneracoes = remunerations_mpes(data.indenizatorias)
+        remuneracoes = remunerations_mpes(data.year, data.indenizatorias)
         for employee in employees:
             emp = employees[employee]
             remu = get_remunerations_mpes(employee, remuneracoes)
-            emp.remuneracoes.MergeFrom(remu)
-            employees[employee] = emp
+            if remu is not None:
+                emp.remuneracoes.MergeFrom(remu)
+                employees[employee] = emp
     return employees
 
 
@@ -390,21 +465,24 @@ def get_mprj_header(year, month):
 def update_employees_mprj(data, employees):
     # Mudança de formato de planilha do MPES em alguns meses
     # em 2022 e 2023
-    header = get_mprj_header(int(data.year), int(data.month))
+    if int(data.year) < 2024:
+        header = get_mprj_header(int(data.year), int(data.month))
 
-    for row in data.indenizatorias:
-        registration = row[0]
+        for row in data.indenizatorias:
+            registration = row[0]
 
-        if type(registration) != str and not pd.isna(registration):
-            registration = str(int(registration)).zfill(8)
+            if type(registration) != str and not pd.isna(registration):
+                registration = str(int(registration)).zfill(8)
 
-        if registration in employees.keys():
-            emp = employees[registration]
-            remu = remunerations(row, header)
-            emp.remuneracoes.MergeFrom(remu)
-            employees[registration] = emp
+            if registration in employees.keys():
+                emp = employees[registration]
+                remu = remunerations(row, header)
+                emp.remuneracoes.MergeFrom(remu)
+                employees[registration] = emp
 
-    return employees
+        return employees
+    else:
+        update_employees_mprj_2024(data, employees)
 
 
 def get_mpsp_header(year, month):
@@ -461,26 +539,32 @@ def get_mpse_header(year, month):
         return "mpse-10-2022"
     elif year == 2023 and month in [8, 9]:
         return "mpse-08-2023"
-    else:
+    elif year == 2023 and month >= 10:
         return "mpse-10-2023"
+    elif year == 2024 and month in [1, 2, 3]:
+        return "mpse-01-2024"
+    else:
+        return "mpse-04-2024"
 
 
 def update_employees_mpse(data, employees):
-    # MPSE mudou sua estrutura (rubricas) diversas vezes entre 2021 e 2023
+    # MPSE mudou sua estrutura (rubricas) diversas vezes entre 2021 e 2024
     header = get_mpse_header(int(data.year), int(data.month))
 
     for row in data.indenizatorias:
         row = [x for x in row if not pd.isna(x)]
-        registration = row[0]
+        
+        if len(row) > 1:
+            registration = row[0]
 
-        if type(registration) != str and not pd.isna(registration):
-            registration = str(int(registration))
+            if type(registration) != str and not pd.isna(registration):
+                registration = str(int(registration))
 
-        if registration in employees.keys():
-            emp = employees[registration]
-            remu = remunerations(row, header)
-            emp.remuneracoes.MergeFrom(remu)
-            employees[registration] = emp
+            if registration in employees.keys():
+                emp = employees[registration]
+                remu = remunerations(row, header)
+                emp.remuneracoes.MergeFrom(remu)
+                employees[registration] = emp
 
     return employees
 
@@ -497,11 +581,28 @@ def get_mpto_header(year, month):
 
 
 def update_employees_mpto(data, employees):
-    header = get_mpto_header(int(data.year), int(data.month))
+    if int(data.year) < 2024:
+        header = get_mpto_header(int(data.year), int(data.month))
 
-    for row in data.indenizatorias:
-        row = [x for x in row if not pd.isna(x)]
-        if len(row) > 0:
+        for row in data.indenizatorias:
+            row = [x for x in row if not pd.isna(x)]
+            if len(row) > 0:
+                registration = row[0]
+
+                if type(registration) != str and not pd.isna(registration):
+                    registration = str(int(registration))
+
+                if registration in employees.keys():
+                    emp = employees[registration]
+                    remu = remunerations(row, header)
+                    emp.remuneracoes.MergeFrom(remu)
+                    employees[registration] = emp
+    else:
+        # A partir de 2024, a planilha de indenizações do MPTO segue um formato diferente, e.g.
+        # Verbas Indenizatórias: [AUXÍLIO ALIMENTAÇÃO, INDENIZAÇÃO - LICENÇA COMPENSATÓRIA, PASS]	
+        # Valor da Verba: [2122, 4523.32, 918.98]
+        # Sendo necessário iterar célula por célula
+        for row in data.indenizatorias:
             registration = row[0]
 
             if type(registration) != str and not pd.isna(registration):
@@ -509,7 +610,7 @@ def update_employees_mpto(data, employees):
 
             if registration in employees.keys():
                 emp = employees[registration]
-                remu = remunerations(row, header)
+                remu = remunerations_mpto(row)
                 emp.remuneracoes.MergeFrom(remu)
                 employees[registration] = emp
 
@@ -533,7 +634,64 @@ def update_employees_mppa(data, employees):
 
         if registration in employees.keys():
             emp = employees[registration]
-            remu = remunerations_mppa(row, header)
+            remu = remunerations_mppa_mprj_mpac(row, header)
+            emp.remuneracoes.MergeFrom(remu)
+            employees[registration] = emp
+
+    return employees
+
+def update_employees_mprj_2024(data, employees):
+    # O cabeçalho da planilha de indenizações do MPRJ muda com frequência
+    # No entanto, ainda segue um padrão mínimo, o que nos permite iterar sobre as rubricas.
+    columns = data.indenizatorias[0][4:]
+    header = {}
+    count = 4
+
+    for col in columns:
+        if col in header:
+            col = col + " 2"
+        header[col] = count
+        count += 1
+    
+    for row in data.indenizatorias:
+        registration = row[0]
+
+        if registration in employees.keys():
+            emp = employees[registration]
+            remu = remunerations_mppa_mprj_mpac(row, header)
+            emp.remuneracoes.MergeFrom(remu)
+            employees[registration] = emp
+
+    return employees
+
+def update_employees_mpac_2024(data, employees):
+    # O cabeçalho da planilha de indenizações do MPAC muda todo mês
+    # No entanto, ainda segue um padrão mínimo, o que nos permite iterar sobre as rubricas.
+    # a partir do mês 4 [6], antes [5]
+    
+    if int(data.year)==2024 and int(data.month) in [1,2,3]:
+        index = 3
+    else:
+        index = 4
+
+    columns = [x for x in data.indenizatorias[index] if not pd.isna(x)]
+    columns = columns[4:]
+    
+    header = {}
+    count = 4
+
+    for col in columns:
+        if "Total Pago" not in col:
+            header[col] = count
+        count += 1
+    
+    for row in data.indenizatorias:
+        row = [x for x in row if not pd.isna(x)]
+        registration = str(row[0])
+
+        if registration in employees.keys():
+            emp = employees[registration]
+            remu = remunerations_mppa_mprj_mpac(row, header)
             emp.remuneracoes.MergeFrom(remu)
             employees[registration] = emp
 

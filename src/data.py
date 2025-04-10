@@ -58,7 +58,19 @@ def _readCSV(file):
         else:
             skiprows = 0
 
-        dt = pd.read_csv(file, encoding="iso-8859-1", skiprows=skiprows, delimiter=";")
+        # Alguns órgãos possuem delimitador e encoding específico
+        # Isto é, o separador de colunas e o tipo de codificação
+        # Isso permite que as planilhas sejam lidas corretamente, interpretando as colunas
+        # e os caracteres de forma adequada.
+        if "mpto" in file.casefold() or "mprr" in file.casefold() or "mprn" in file.casefold() or "mpes" in file.casefold():
+            delimiter=","
+            encoding="utf-8"
+        else:
+            delimiter=";"
+            encoding="iso-8859-1"
+            
+
+        dt = pd.read_csv(file, encoding=encoding, skiprows=skiprows, delimiter=delimiter)
         data = dt.to_numpy()
     except Exception as excep:
         print(f"Erro lendo as planilhas CSV ({file}): {excep}", file=sys.stderr)
@@ -98,6 +110,8 @@ def _convert_file(file):
     return f"{file}"
 
 
+# Existe uma função para cada tipo de arquivo
+# Essa função identifica a extensão do arquivo e chama a função apropriada
 def load(file_names, data):
     """Carrega os arquivos passados como parâmetros.
      :param file_names: slice contendo os arquivos baixados pelo coletor.
@@ -106,56 +120,27 @@ def load(file_names, data):
      :param year e month: usados para fazer a validação na planilha de controle de dados
      :return um objeto Data() pronto para operar com os arquivos
     """
-
-    if data.court.casefold() in ["mppa", "mpsc", "mprr"]:
-        data.contracheque = _readXLS([c for c in file_names if "contracheque" in c][0])
-        data.indenizatorias = _readXLS(
-            [i for i in file_names if "indenizacoes" in i][0]
-        )
-
-        return data
-
-    elif data.court.casefold() in [
-        "mpsp",
-        "mprj",
-        "mpse",
-        "mprn",
-        "mpto",
-        "mppi",
-        "mpac",
-        "mpba",
-    ] or (data.court.casefold() == "mpes" and int(data.year) != 2021):
-        if data.court.casefold() == "mpse":
-            data.contracheque = _readODS(_convert_file([c for c in file_names if "contracheque" in c][0]))
-        else:
-            data.contracheque = _readODS([c for c in file_names if "contracheque" in c][0])
+    
+    for f in file_names:
+        extensao = os.path.splitext(f)[1].lstrip('.')
         
-        data.indenizatorias = _readODS(
-            [i for i in file_names if "indenizacoes" in i][0]
-        )
-
-        return data
-
-    elif data.court.casefold() in ["mprs", "mpal"]:
-        data.contracheque = _readCSV([c for c in file_names if "contracheque" in c][0])
-        data.indenizatorias = _readCSV(
-            [i for i in file_names if "indenizacoes" in i][0]
-        )
-
-        return data
-
-    elif data.court.casefold() in ["mppe"] or (
-        data.court.casefold() == "mpes" and int(data.year) == 2021
-    ):
-        if data.court.casefold() == "mppe" and int(data.year) == 2023 and int(data.month) not in [5,6,8]:
-            data.contracheque = _readXLS([c for c in file_names if "contracheque" in c][0])
-        else:
-            data.contracheque = _readXLSX([c for c in file_names if "contracheque" in c][0])
-        data.indenizatorias = _readXLSX(
-            [i for i in file_names if "indenizacoes" in i][0]
-        )
-
-        return data
+        if extensao == "xls":
+            df = _readXLS(f)
+        elif extensao in ["ods", "odt"]:
+            if data.court.casefold() == "mpse" and extensao == "odt":
+                f = _convert_file(f)
+            df = _readODS(f)
+        elif extensao == "csv":
+            df = _readCSV(f)
+        elif extensao == "xlsx":
+            df = _readXLSX(f)
+            
+        if "contracheques" in f:
+            data.contracheque = df
+        elif "indenizacoes" in f:
+            data.indenizatorias = df
+            
+    return data
 
 
 class Data:
