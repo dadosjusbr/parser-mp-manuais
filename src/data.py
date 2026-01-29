@@ -12,12 +12,12 @@ STATUS_INVALID_FILE = 5
 
 def _readXLS(file):
     try:
-        # A planilha de contracheques do MPPA traz a matrícula como float, 
+        # A planilha de contracheques do MPPA traz a matrícula como float,
         # enquanto a planilha de indenizações traz do tipo string.
         # Isso é um problema, considerando, principalmente, matrícula terminadas em 0
         # Definimos que o tipo da coluna é string ainda na leitura
-        if 'mppa' in file.casefold():
-            dt = pd.read_excel(file, engine="xlrd", dtype={'Matrícula': str})
+        if "mppa" in file.casefold():
+            dt = pd.read_excel(file, engine="xlrd", dtype={"Matrícula": str})
         else:
             dt = pd.read_excel(file, engine="xlrd")
         data = dt.to_numpy()
@@ -47,10 +47,20 @@ def _readODS(file):
     return data
 
 
+def _readHTML(file):
+    try:
+        dt = pd.read_html(file)
+        data = dt[0].to_numpy()
+    except Exception as excep:
+        print(f"Erro lendo as planilhas HTML ({file}): {excep}", file=sys.stderr)
+        sys.exit(STATUS_INVALID_FILE)
+    return data
+
+
 def _readCSV(file):
     try:
-        # é necessário pular 1 linha no MPAL, pois o pandas entende a primeira linha 
-        # (que contém apenas a data) como cabeçalho, deixando o dataframe quebrado, excluindo demais colunas 
+        # é necessário pular 1 linha no MPAL, pois o pandas entende a primeira linha
+        # (que contém apenas a data) como cabeçalho, deixando o dataframe quebrado, excluindo demais colunas
         # e perdendo informações relevantes.
         # não é necessário fazer isso com o MPRS, pois a primeira linha é, de fato, o cabeçalho.
         if "mpal" in file.casefold():
@@ -62,15 +72,21 @@ def _readCSV(file):
         # Isto é, o separador de colunas e o tipo de codificação
         # Isso permite que as planilhas sejam lidas corretamente, interpretando as colunas
         # e os caracteres de forma adequada.
-        if "mpto" in file.casefold() or "mprr" in file.casefold() or "mprn" in file.casefold() or "mpes" in file.casefold():
-            delimiter=","
-            encoding="utf-8"
+        if (
+            "mpto" in file.casefold()
+            or "mprr" in file.casefold()
+            or "mprn" in file.casefold()
+            or "mpes" in file.casefold()
+        ):
+            delimiter = ","
+            encoding = "utf-8"
         else:
-            delimiter=";"
-            encoding="iso-8859-1"
-            
+            delimiter = ";"
+            encoding = "iso-8859-1"
 
-        dt = pd.read_csv(file, encoding=encoding, skiprows=skiprows, delimiter=delimiter)
+        dt = pd.read_csv(
+            file, encoding=encoding, skiprows=skiprows, delimiter=delimiter
+        )
         data = dt.to_numpy()
     except Exception as excep:
         print(f"Erro lendo as planilhas CSV ({file}): {excep}", file=sys.stderr)
@@ -120,10 +136,10 @@ def load(file_names, data):
      :param year e month: usados para fazer a validação na planilha de controle de dados
      :return um objeto Data() pronto para operar com os arquivos
     """
-    
+
     for f in file_names:
-        extensao = os.path.splitext(f)[1].lstrip('.')
-        
+        extensao = os.path.splitext(f)[1].lstrip(".")
+
         if extensao == "xls":
             df = _readXLS(f)
         elif extensao in ["ods", "odt"]:
@@ -134,12 +150,14 @@ def load(file_names, data):
             df = _readCSV(f)
         elif extensao == "xlsx":
             df = _readXLSX(f)
-            
+        elif extensao == "html":
+            df = _readHTML(f)
+
         if "contracheques" in f:
             data.contracheque = df
         elif "indenizacoes" in f:
             data.indenizatorias = df
-            
+
     return data
 
 

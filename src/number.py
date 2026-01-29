@@ -25,5 +25,7 @@ def format_value(element):
     if str(element).count('.') > 1:
         # Para casos como 3.999.90 -> 3999.90
         element = str(element).replace('.', '', 1)
+    if str(element) in ['.', ' . ']:
+        return 0.0
 
     return float(element)
